@@ -1,4 +1,76 @@
+@font-face {
+    font-family: 'proxima';
+    src: url('mark_simonson_-_proxima_nova_regular-webfont.woff2') format('woff2'),
+         url('mark_simonson_-_proxima_nova_regular-webfont.woff') format('woff'),
+         url('mark_simonson_-_proxima_nova_regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gilroy';
+    src: url('radomir_tinkov_-_gilroy-extrabold-webfont.woff2') format('woff2'),
+         url('radomir_tinkov_-_gilroy-extrabold-webfont.woff') format('woff'),
+         url('radomir_tinkov_-_gilroy-extrabold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+// Global classes
+
+
 .wrapper {
   max-width: 1100px;
   margin: 0 auto;
+}
+
+
+
+
+// Top site-header
+
+.site-header {
+  //position: fixed;
+  @include clearfix-micro();
+}
+
+
+
+// Site main-header
+
+.main-header {
+  background: url('../img/first_screen.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+
+
+  &-logo {
+    background: url('../img/logo_white.png') no-repeat;
+    height: 59px;
+    width: 168px;
+    display: inline-block;
+    float: left;
+  }
+
+  &-location {
+    float: right;
+
+    .number {
+      font-family: 'gilroy';
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .address {
+      color: #fff;
+      font-size: 14px;
+      font-family: 'gilroy';
+    }
+
+  }
+
+
 }
