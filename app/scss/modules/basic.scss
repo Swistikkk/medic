@@ -35,6 +35,8 @@ p, h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 10;
   height: 100%;
+
+  @include clearfix-micro();
 }
 
 .button {
@@ -51,10 +53,18 @@ p, h1, h2, h3, h4, h5, h6 {
 
   &_liteBlue {
     background: #32c9e4;
+
+    &:hover {
+      background: lighten(#32c9e4, 10%);
+    }
   }
 
   &_blue {
     background: #1e6dbb;
+
+    &:hover {
+      background: lighten(#1e6dbb, 10%);
+    }
   }
 
   span {
@@ -76,6 +86,44 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 100%;
   @include clearfix-micro();
   z-index: 20;
+
+  &--active {
+    position: fixed;
+    top: 0;
+    background: #fff;
+    height: 130px;
+
+    & .main-header {
+      &-logo {
+        background: url('../img/logo.png') no-repeat;
+      }
+
+      &-location {
+        .number {
+          color: #bfbfbf;
+        }
+
+        .address {
+          color: #a1a1a1;
+        }
+      }
+
+      &-menu {
+        position: relative;
+        top: -34px;
+        margin-top: 0;
+        .list {
+          &-item {
+            &-link {
+              color: #444444;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
 }
 
 
@@ -89,6 +137,11 @@ p, h1, h2, h3, h4, h5, h6 {
   min-height: 546px;
   position: relative;
   padding-bottom: 110px;
+
+  &--active {
+    margin-top: 125px;
+    padding-bottom: 0;
+  }
 
   &:before {
     z-index: 1;
@@ -187,6 +240,10 @@ p, h1, h2, h3, h4, h5, h6 {
           color: #fff;
           font-family: 'proxima';
           font-size: 14px;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -222,6 +279,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
     &:hover {
       cursor: pointer;
+      background: darken(#fff, 10%);
     }
 
     span {
@@ -456,10 +514,65 @@ p, h1, h2, h3, h4, h5, h6 {
 // About-med
 
 .about-med {
-  background: blue;
+  background: url('../img/photo_1.png') no-repeat;
+  background-size: cover;
+  background-position: center;
   position: relative;
   top: -1px;
   height: 700px;
+
+  &-image_1 {
+    background: url('../img/photo_1.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &-image_2 {
+    background: url('../img/photo_2.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &-image_3 {
+    background: url('../img/photo_3.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &-image_4 {
+    background: url('../img/photo_4.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &-image_5 {
+    background: url('../img/photo_5.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &-image_6 {
+    background: url('../img/photo_6.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &-image_7 {
+    background: url('../img/photo_7.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background: #000;
+    opacity: 0.4;
+    height: 100%;
+  }
 
   &-title {
     padding-top: 100px;
@@ -518,6 +631,19 @@ p, h1, h2, h3, h4, h5, h6 {
       position: relative;
       top: 35px;
       background: transparent;
+
+      &--active {
+        img {
+          border: 3px solid #1e6dbb;
+          position: relative;
+          top: 3px;
+        }
+
+        &.item:before {
+          opacity: 0;
+        }
+
+      }
 
       &:before {
         position: absolute;
@@ -712,6 +838,7 @@ p, h1, h2, h3, h4, h5, h6 {
         left: 0;
         width: 100%;
         background: url('../img/prices_tab_shadow.png') no-repeat;
+        opacity: 0.3;
       }
 
       &-description {

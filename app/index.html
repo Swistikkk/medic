@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
   <title>Medic</title>
 </head>
 <body>
@@ -35,22 +37,24 @@
 
       </div><!-- /wrapper -->
 
+      <div class="wrapper">
+        <div class="main-header-menu">
+          <ul class="list">
+            <li class="list-item"><a class="list-item-link" href="#mrt">Что такое МРТ</a></li>
+            <li class="list-item"><a class="list-item-link" href="#why-dont">Показания</a></li>
+            <li class="list-item"><a class="list-item-link" href="#why-dont--mrt">Противопоказания</a></li>
+            <li class="list-item"><a class="list-item-link" href="#about-med">Медцентр</a></li>
+            <li class="list-item"><a class="list-item-link" href="#machine">Оборудование</a></li>
+            <li class="list-item"><a class="list-item-link" href="#doctors">Специалисты</a></li>
+            <li class="list-item"><a class="list-item-link" href="#cost">Цены</a></li>
+            <li class="list-item"><a class="list-item-link" href="/">Контакты</a></li>
+          </ul>
+        </div>
+      </div><!-- /wrapper-->
+
     </header><!-- /site-header -->
 
     <div class="wrapper">
-
-      <div class="main-header-menu">
-        <ul class="list">
-          <li class="list-item"><a class="list-item-link" href="/">Что такое МРТ</a></li>
-          <li class="list-item"><a class="list-item-link" href="/">Показания</a></li>
-          <li class="list-item"><a class="list-item-link" href="/">Противопоказания</a></li>
-          <li class="list-item"><a class="list-item-link" href="/">Медцентр</a></li>
-          <li class="list-item"><a class="list-item-link" href="/">Оборудование</a></li>
-          <li class="list-item"><a class="list-item-link" href="/">Специалисты</a></li>
-          <li class="list-item"><a class="list-item-link" href="/">Цены</a></li>
-          <li class="list-item"><a class="list-item-link" href="/">Контакты</a></li>
-        </ul>
-      </div>
 
       <div class="main-header-description">
         <h1 class="main-header-title">Высокоточное МРТ головного мозга</h1>
@@ -89,7 +93,7 @@
 
   </header><!-- /main-header -->
 
-  <div class="mrt">
+  <div id="mrt" class="mrt">
     <div class="wrapper">
       <div class="mrt-wrapper">
         <h2 class="mrt-title">Что такое МРТ</h2>
@@ -155,7 +159,7 @@
     </div>
   </div><!-- /mrt-->
 
-  <div class="why-dont">
+  <div id="why-dont" class="why-dont">
 
     <div class="wrapper">
 
@@ -227,7 +231,7 @@
 
   </div><!-- /why-dont-->
 
-  <div class="why-dont why-dont--mrt">
+  <div id="why-dont--mrt" class="why-dont why-dont--mrt">
 
     <div class="wrapper">
 
@@ -317,7 +321,7 @@
 
   </div><!-- /why-dont-->
 
-  <div class="about-med">
+  <div id="about-med" class="about-med">
 
     <div class="wrapper">
       <h3 class="about-med-title">Медцентр</h3>
@@ -354,7 +358,7 @@
           <img src="../img/photo_7.png" alt="">
         </div>
 
-        <div class="item">
+        <div class="item item--active">
           <img src="../img/photo_1.png" alt="">
         </div>
 
@@ -375,7 +379,7 @@
 
   </div><!-- /about-med -->
 
-  <div class="machine">
+  <div id="machine" class="machine">
 
     <div class="wrapper">
 
@@ -428,7 +432,7 @@
 
   </div><!-- /machine-->
 
-  <div class="doctors">
+  <div id="doctors" class="doctors">
 
     <div class="wrapper">
       <h2 class="doctors-title">Наши специалисты</h2>
@@ -490,7 +494,7 @@
 
   </div><!-- /doctors-->
 
-  <div class="cost">
+  <div id="cost" class="cost">
 
     <div class="wrapper">
 
@@ -617,8 +621,6 @@
   </div><!-- /cost-->
 
 
-
-
-
+  <script src="js/common.js"></script>
 </body>
 </html>

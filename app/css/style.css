@@ -24,6 +24,13 @@ p, h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 10;
   height: 100%; }
+  .wrapper {
+    *zoom: 1; }
+  .wrapper:before, .wrapper:after {
+    content: "";
+    display: table; }
+  .wrapper:after {
+    clear: both; }
 
 .button {
   padding: 15px 20px;
@@ -36,8 +43,12 @@ p, h1, h2, h3, h4, h5, h6 {
     cursor: pointer; }
   .button_liteBlue {
     background: #32c9e4; }
+    .button_liteBlue:hover {
+      background: #5fd5ea; }
   .button_blue {
     background: #1e6dbb; }
+    .button_blue:hover {
+      background: #2e87de; }
   .button span {
     text-transform: uppercase;
     color: #fff;
@@ -55,6 +66,23 @@ p, h1, h2, h3, h4, h5, h6 {
     display: table; }
   .site-header:after {
     clear: both; }
+  .site-header--active {
+    position: fixed;
+    top: 0;
+    background: #fff;
+    height: 130px; }
+    .site-header--active .main-header-logo {
+      background: url("../img/logo.png") no-repeat; }
+    .site-header--active .main-header-location .number {
+      color: #bfbfbf; }
+    .site-header--active .main-header-location .address {
+      color: #a1a1a1; }
+    .site-header--active .main-header-menu {
+      position: relative;
+      top: -34px;
+      margin-top: 0; }
+      .site-header--active .main-header-menu .list-item-link {
+        color: #444444; }
 
 .main-header {
   background: url("../img/first_screen.png") no-repeat;
@@ -63,6 +91,9 @@ p, h1, h2, h3, h4, h5, h6 {
   min-height: 546px;
   position: relative;
   padding-bottom: 110px; }
+  .main-header--active {
+    margin-top: 125px;
+    padding-bottom: 0; }
   .main-header:before {
     z-index: 1;
     position: absolute;
@@ -139,6 +170,8 @@ p, h1, h2, h3, h4, h5, h6 {
           color: #fff;
           font-family: 'proxima';
           font-size: 14px; }
+          .main-header-menu .list-item-link:hover {
+            text-decoration: underline; }
   .main-header-title {
     font-family: 'gilroy';
     font-size: 90px;
@@ -159,7 +192,8 @@ p, h1, h2, h3, h4, h5, h6 {
     outline: none;
     border-radius: 4px; }
     .main-header-button:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      background: #e6e6e6; }
     .main-header-button span {
       text-transform: uppercase;
       color: #4b7b9a;
@@ -310,10 +344,49 @@ p, h1, h2, h3, h4, h5, h6 {
       color: #000; }
 
 .about-med {
-  background: blue;
+  background: url("../img/photo_1.png") no-repeat;
+  background-size: cover;
+  background-position: center;
   position: relative;
   top: -1px;
   height: 700px; }
+  .about-med-image_1 {
+    background: url("../img/photo_1.png") no-repeat;
+    background-size: cover;
+    background-position: center; }
+  .about-med-image_2 {
+    background: url("../img/photo_2.png") no-repeat;
+    background-size: cover;
+    background-position: center; }
+  .about-med-image_3 {
+    background: url("../img/photo_3.png") no-repeat;
+    background-size: cover;
+    background-position: center; }
+  .about-med-image_4 {
+    background: url("../img/photo_4.png") no-repeat;
+    background-size: cover;
+    background-position: center; }
+  .about-med-image_5 {
+    background: url("../img/photo_5.png") no-repeat;
+    background-size: cover;
+    background-position: center; }
+  .about-med-image_6 {
+    background: url("../img/photo_6.png") no-repeat;
+    background-size: cover;
+    background-position: center; }
+  .about-med-image_7 {
+    background: url("../img/photo_7.png") no-repeat;
+    background-size: cover;
+    background-position: center; }
+  .about-med:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background: #000;
+    opacity: 0.4;
+    height: 100%; }
   .about-med-title {
     padding-top: 100px;
     color: #fff;
@@ -353,6 +426,12 @@ p, h1, h2, h3, h4, h5, h6 {
       position: relative;
       top: 35px;
       background: transparent; }
+      .about-med-items .item--active img {
+        border: 3px solid #1e6dbb;
+        position: relative;
+        top: 3px; }
+      .about-med-items .item--active.item:before {
+        opacity: 0; }
       .about-med-items .item:before {
         position: absolute;
         top: 0;
@@ -489,7 +568,8 @@ p, h1, h2, h3, h4, h5, h6 {
       height: 20px;
       left: 0;
       width: 100%;
-      background: url("../img/prices_tab_shadow.png") no-repeat; }
+      background: url("../img/prices_tab_shadow.png") no-repeat;
+      opacity: 0.3; }
     .cost-items .item-description {
       display: inline-block;
       position: relative;
