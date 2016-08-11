@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'proxima';
-    src: url('mark_simonson_-_proxima_nova_regular-webfont.woff2') format('woff2'),
-         url('mark_simonson_-_proxima_nova_regular-webfont.woff') format('woff'),
-         url('mark_simonson_-_proxima_nova_regular-webfont.ttf') format('truetype');
+    src: url('../fonts/mark_simonson_-_proxima_nova_regular-webfont.woff2') format('woff2'),
+         url('../fonts/mark_simonson_-_proxima_nova_regular-webfont.woff') format('woff'),
+         url('../fonts/mark_simonson_-_proxima_nova_regular-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -10,21 +10,60 @@
 
 @font-face {
     font-family: 'gilroy';
-    src: url('radomir_tinkov_-_gilroy-extrabold-webfont.woff2') format('woff2'),
-         url('radomir_tinkov_-_gilroy-extrabold-webfont.woff') format('woff'),
-         url('radomir_tinkov_-_gilroy-extrabold-webfont.ttf') format('truetype');
+    src: url('../fonts/radomir_tinkov_-_gilroy-extrabold-webfont.woff2') format('woff2'),
+         url('../fonts/radomir_tinkov_-_gilroy-extrabold-webfont.woff') format('woff'),
+         url('../fonts/radomir_tinkov_-_gilroy-extrabold-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
 }
 
 
-// Global classes
+body {
+  font-family: 'proxima';
+}
 
+// Global classes
+p, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
 
 .wrapper {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  height: 100%;
+}
+
+.button {
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  display: inline-block;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &_liteBlue {
+    background: #32c9e4;
+  }
+
+  &_blue {
+    background: #1e6dbb;
+  }
+
+  span {
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'proxima';
+    font-weight: bold;
+    font-size: 12px;
+  }
 }
 
 
@@ -34,7 +73,9 @@
 
 .site-header {
   //position: fixed;
+  width: 100%;
   @include clearfix-micro();
+  z-index: 20;
 }
 
 
@@ -45,6 +86,25 @@
   background: url('../img/first_screen.png') no-repeat;
   background-size: cover;
   background-position: center;
+  min-height: 546px;
+  position: relative;
+  padding-bottom: 110px;
+
+  &:before {
+    z-index: 1;
+    position: absolute;
+    content: '';
+    opacity: .7;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #32c9e4;
+    background: -moz-linear-gradient(top,  #32c9e4 0%, #1e6dbb 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #32c9e4 0%,#1e6dbb 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #32c9e4 0%,#1e6dbb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32c9e4', endColorstr='#1e6dbb',GradientType=0 ); /* IE6-9 */
+  }
 
 
   &-logo {
@@ -53,24 +113,691 @@
     width: 168px;
     display: inline-block;
     float: left;
+    margin-top: 28px;
   }
 
   &-location {
     float: right;
+    display: inline-block;
 
     .number {
       font-family: 'gilroy';
       font-size: 24px;
       color: #fff;
+      display: inline-block;
+      padding-top: 42px;
+      margin-right: 20px;
     }
 
     .address {
       color: #fff;
       font-size: 14px;
       font-family: 'gilroy';
+      display: inline-block;
+      max-width: 160px;
+      vertical-align: top;
+      margin-top: 36px;
+      margin-right: 15px;
+      position: relative;
+      padding-left: 24px;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        background: url('../img/marker.png') no-repeat;
+        width: 18px;
+        height: 28px;
+        content: '';
+      }
+    }
+
+    .buttons {
+      vertical-align: top;
+      margin-top: 28px;
+      display: inline-block;
+
+      .button {
+        &:last-child {
+          margin-left: 12px;
+        }
+      }
     }
 
   }
 
+  &-menu {
+    margin-top: 20px;
 
+    .list {
+      margin: 0;
+      padding: 0;
+
+      &-item {
+        list-style: none;
+        display: inline-block;
+        margin-right: 31px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &-link {
+          text-decoration: none;
+          color: #fff;
+          font-family: 'proxima';
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  &-description {
+
+  }
+
+  &-title {
+    font-family: 'gilroy';
+    font-size: 90px;
+    color: #fff;
+    line-height: 85px;
+    margin-bottom: 40px;
+  }
+
+  &-content {
+    color: #fff;
+    max-width: 721px;
+    font-family: 'proxima';
+    margin-bottom: 40px;
+  }
+
+  &-button {
+    background: #fff;
+    width: 260px;
+    text-align: center;
+    padding: 18px 0;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    span {
+      text-transform: uppercase;
+      color: #4b7b9a;
+      font-size: 14px;
+      font-family: 'proxima';
+      font-weight: bold;
+    }
+  }
+
+  .quote {
+    position: absolute;
+    bottom: -70px;
+    right: 0;
+    max-width: 245px;
+
+    &-content {
+      color: #fff;
+      font-family: 'proxima';
+      font-size: 12px;
+    }
+
+    &-profile {
+      margin-top: 22px;
+
+      &-img {
+        width: 42px;
+        height: 43px;
+        background: url('../img/first_screen_man.png') no-repeat;
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+      }
+
+      &-info {
+
+        .name {
+          color: #fff;
+          font-size: 12px;
+          font-family: 'proxima';
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .status {
+          color: #fff;
+          font-family: 'proxima';
+          font-size: 12px;
+        }
+
+      }
+    }
+  }
+}
+
+
+// Mrt
+
+.mrt {
+  position: relative;
+  min-width: 600px;
+
+  &-wrapper {
+    padding: 95px 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url('../img/about_photos.png') no-repeat;
+    width: 489px;
+    height: 527px;
+  }
+
+  &-title {
+    font-family: 'gilroy';
+    font-size: 90px;
+    line-height: 80px;
+    color: #201f26;
+    margin-bottom: 40px;
+  }
+
+  &-description {
+    color: #6a6680;
+    max-width: 721px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  &-info {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 30px;
+
+    img {
+      vertical-align: middle;
+      padding-right: 15px;
+    }
+  }
+
+  &-item {
+    max-width: 260px;
+    display: inline-block;
+    position: relative;
+    margin-top: 30px;
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-img {
+      margin-bottom: 30px;
+    }
+
+    &-title {
+      font-family: 'gilroy';
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+
+    &-description {
+      font-size: 16px;
+      color: #6a6680;
+    }
+  }
+}
+
+
+
+// Why-dont
+
+.why-dont {
+  background: url('../img/third_screen.png')no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 435px;
+  width: 100%;
+  padding-bottom: 47px;
+
+
+  .title {
+    padding-top: 95px;
+    color: #fff;
+    font-size: 90px;
+    max-width: 823px;
+    margin-bottom: 60px;
+    line-height: 85px;
+    font-family: 'gilroy';
+  }
+
+  .description {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  &-advantages {
+    margin-top: 50px;
+
+    .name {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .left {
+      max-width: 538px;
+      display: inline-block;
+      vertical-align: top;
+
+      .circle {
+        background: #ffc000;
+      }
+    }
+
+    .right {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 520px;
+
+      .circle {
+        background: #e52020;
+      }
+    }
+  }
+
+  &--mrt {
+    position: relative;
+    top: -1px;
+
+    .title {
+      padding-top: 50px;
+      margin-bottom: 35px;
+    }
+  }
+
+  &-item {
+    background: #fff;
+    display: inline-block;
+    padding: 16px 0 16px 35px;
+    width: 485px;
+    border-radius: 4px;
+    margin-right: 18px;
+    vertical-align: top;
+    margin-bottom: 10px;
+
+    .circle {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1e6dbb;
+      display: inline-block;
+      float: left;
+      margin-top: 5px;
+    }
+
+    .description {
+      vertical-align: top;
+      //display: inline-block;
+      padding-left: 17px;
+      font-size: 16px;
+      color: #000;
+    }
+  }
+}
+
+
+
+// About-med
+
+.about-med {
+  background: blue;
+  position: relative;
+  top: -1px;
+  height: 700px;
+
+  &-title {
+    padding-top: 100px;
+    color: #fff;
+    font-size: 90px;
+    font-family: 'gilroy';
+  }
+
+  &-description {
+    max-width: 720px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  &-content {
+    img {
+      display: inline-block;
+      vertical-align: top;
+      float: left;
+      margin-right: 20px;
+    }
+
+    .content {
+      display: inline-block;
+
+      .title {
+        color: #fff;
+        font-size: 25px;
+        font-family: 'gilroy';
+        margin-bottom: 5px;
+      }
+
+      .description {
+        color: #fff;
+        font-size: 16px;
+        max-width: 608px;
+      }
+
+    }
+  }
+
+  &-items {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    .content {
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .item {
+      display:inline-block;
+      margin-right: 23px;
+      position: relative;
+      top: 35px;
+      background: transparent;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        content: "";
+        background: #000;
+        opacity: 0.7;
+        transition: all 0.5s ease;
+      }
+
+      img {
+        width: 115px;
+        height: 64px;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        &:before {
+         opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+// machine
+
+.machine {
+  padding-top: 155px;
+  padding-bottom: 40px;
+
+  &-content {
+    float: left;
+    margin-right: 100px;
+    .title {
+      color: #201f26;
+      font-size: 90px;
+      font-family: 'gilroy';
+      margin-bottom: 22px;
+    }
+
+    .description {
+      font-size: 16px;
+      color: #6a6680;
+      max-width: 717px;
+    }
+
+    .image {
+      margin-top: 55px;
+      background: url('../img/equipment_photo_1.png') no-repeat;
+      width: 720px;
+      height: 340px;
+    }
+  }
+
+
+  &-about {
+    max-width: 277px;
+    display: inline-block;
+
+    .name {
+      color: #201f26;
+      font-size: 24px;
+      font-family: 'gilroy';
+      margin-bottom: 20px;
+    }
+
+    .brend {
+      margin-bottom: 50px;
+
+      img {
+        margin-bottom: 30px;
+      }
+    }
+
+    .photos {
+      .item {
+        display: inline-block;
+        @include clearfix-micro();
+        height: 98px;
+        box-sizing: border-box;
+        -moz-boz-sizing: border-box;
+        margin-right: 5px;
+        margin-bottom: 8px;
+        width: 131px;
+
+        &--active {
+          border: 3px solid #1e6dbb;
+        }
+        img {
+          display: inline-block;
+          height: 90px;
+          width: 125px;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// doctors
+
+.doctors {
+  background: #f2f3f7;
+  padding: 90px 0;
+  &-title {
+    color: #201f26;
+    font-size: 90px;
+    font-family: 'gilroy';
+    margin-bottom: 22px;
+  }
+
+  &-description {
+    font-size: 16px;
+    color: #6a6680;
+  }
+
+  &-items {
+    margin-top: 45px;
+
+    .item {
+      display: inline-block;
+      margin-right: 2px;
+      max-width: 177px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .name {
+      margin-top: 27px;
+      font-size: 16px;
+      color: #000;
+      max-width: 155px;
+    }
+
+    .who-is {
+      font-size: 12px;
+      color: #6a6680;
+      line-height: 18px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.cost {
+
+  &-wrapper {
+    position: relative;
+  }
+
+  &-title {
+    color: #201f26;
+    font-size: 90px;
+    font-family: 'gilroy';
+    margin-bottom: 22px;
+    padding-top: 90px;
+  }
+
+  &-description {
+    font-size: 16px;
+    color: #6a6680;
+    max-width: 721px;
+    margin-bottom: 60px;
+  }
+
+  &-items {
+    display: inline-block;
+    position: relative;
+    margin-right: 37px;
+
+    .item {
+      width: 721px;
+      background: #f7f7f7;
+      border-radius: 12px;
+      position: relative;
+      margin-bottom: 10px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        height: 20px;
+        left: 0;
+        width: 100%;
+        background: url('../img/prices_tab_shadow.png') no-repeat;
+      }
+
+      &-description {
+        display: inline-block;
+        position: relative;
+        width: 550px;
+        padding: 26px 0 26px 30px;
+        font-size: 16px;
+        color: #000;
+        border-right: 1px solid #e6e6e6;
+        vertical-align: middle;
+      }
+
+      &-prize {
+        display: inline-block;
+        font-size: 24px;
+        font-family: 'gilroy';
+        position: relative;
+        width: 100px;
+        text-align: right;
+        vertical-align: middle;
+
+        &:before {
+          content: 'руб.';
+          position: absolute;
+          top: 3px;
+          right: -26px;
+          font-family: 'proxima';
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  &-popup {
+    padding: 30px;
+    display: inline-block;
+    width: 250px;
+    overflow: hidden;
+    vertical-align: top;
+    top: 0;
+    right: 0;
+    box-shadow: 1px 1px 13px -4px #000;
+
+    .title {
+      font-family: 'gilroy';
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    input {
+      border: none;
+      border-radius: 4px;
+      background: #f2f2f2;
+      color: #201f26;
+      font-family: 'proxima';
+      padding-left: 20px;
+      width: 230px;
+      margin-bottom: 10px;
+      display: block;
+      outline: none;
+      height: 39px;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      background: #1e6dbb;
+      display: block;
+      width: 100%;
+      height: 39px;
+
+      span {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: 'proxima';
+        font-weight: bold;
+        display: inline-block;
+        line-height: 39px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
