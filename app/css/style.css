@@ -77,6 +77,15 @@ p, h1, h2, h3, h4, h5, h6 {
       color: #bfbfbf; }
     .site-header--active .main-header-location .address {
       color: #a1a1a1; }
+      .site-header--active .main-header-location .address:before {
+        background: url("../img/gray.png") no-repeat;
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 18px;
+        height: 28px;
+        content: '';
+        opacity: 0.7; }
     .site-header--active .main-header-menu {
       position: relative;
       top: -34px;
