@@ -1,4 +1,16 @@
 @charset "UTF-8";
+@keyframes background {
+  0% {
+    width: 100%; }
+  25% {
+    width: 105%; }
+  50% {
+    width: 110%; }
+  75% {
+    width: 105%; }
+  100% {
+    width: 100%; } }
+
 @font-face {
   font-family: 'proxima';
   src: url("../fonts/mark_simonson_-_proxima_nova_regular-webfont.woff2") format("woff2"), url("../fonts/mark_simonson_-_proxima_nova_regular-webfont.woff") format("woff"), url("../fonts/mark_simonson_-_proxima_nova_regular-webfont.ttf") format("truetype");
@@ -94,17 +106,17 @@ p, h1, h2, h3, h4, h5, h6 {
         color: #444444; }
 
 .main-header {
-  background: url("../img/first_screen.png") no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 546px;
   position: relative;
-  padding-bottom: 110px; }
+  padding-bottom: 110px;
+  overflow: hidden; }
   .main-header--active {
     margin-top: 125px;
     padding-bottom: 0; }
   .main-header:before {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     content: '';
     opacity: .7;
@@ -121,6 +133,18 @@ p, h1, h2, h3, h4, h5, h6 {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32c9e4', endColorstr='#1e6dbb',GradientType=0 );
     /* IE6-9 */ }
+  .main-header:after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    background: url("../img/first_screen.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    animation: background 60s infinite ease-out; }
   .main-header-logo {
     background: url("../img/logo_white.png") no-repeat;
     height: 59px;
@@ -609,9 +633,11 @@ p, h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   width: 250px;
   overflow: hidden;
-  vertical-align: top;
+  position: absolute;
   top: 0;
   right: 0;
+  float: right;
+  margin-right: 35px;
   box-shadow: 1px 1px 13px -4px #000; }
   .cost-popup .title {
     font-family: 'gilroy';

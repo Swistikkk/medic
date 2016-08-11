@@ -54,7 +54,22 @@ $(document).ready(function(){
 
   }
 
+  function flyPopup() {
+    var flyPopup = $('.cost-popup');
+    var forPopup = flyPopup.offset().top - flyPopup.height();
 
+    window.addEventListener('scroll', function(e){
+      var y = window.scrollY;
+
+      if(y > forPopup) {
+        flyPopup.css('top', (y - forPopup) + 'px');
+      } else {
+        flyPopup.css('top', 0 + 'px');
+      }
+    });
+  }
+
+  flyPopup();
   gallery();
   scrollingMenu();
   fixedHeader();
