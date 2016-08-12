@@ -45,7 +45,7 @@ p, h1, h2, h3, h4, h5, h6 {
     clear: both; }
 
 .button {
-  padding: 15px 20px;
+  padding: 10px 20px;
   background: none;
   border: none;
   outline: none;
@@ -69,6 +69,7 @@ p, h1, h2, h3, h4, h5, h6 {
     font-size: 12px; }
 
 .site-header {
+  position: absolute;
   width: 100%;
   z-index: 20; }
   .site-header {
@@ -82,9 +83,16 @@ p, h1, h2, h3, h4, h5, h6 {
     position: fixed;
     top: 0;
     background: #fff;
-    height: 130px; }
+    height: 130px;
+    box-shadow: 0px -2px 6px #000;
+    transition: all 0.5s ease; }
     .site-header--active .main-header-logo {
-      background: url("../img/logo.png") no-repeat; }
+      background: url("../img/logo.png") no-repeat;
+      height: 45px;
+      width: 148px;
+      display: inline-block;
+      background-size: contain;
+      margin-top: 32px; }
     .site-header--active .main-header-location .number {
       color: #bfbfbf; }
     .site-header--active .main-header-location .address {
@@ -112,9 +120,6 @@ p, h1, h2, h3, h4, h5, h6 {
   position: relative;
   padding-bottom: 110px;
   overflow: hidden; }
-  .main-header--active {
-    margin-top: 125px;
-    padding-bottom: 0; }
   .main-header:before {
     z-index: 2;
     position: absolute;
@@ -144,14 +149,15 @@ p, h1, h2, h3, h4, h5, h6 {
     left: 0;
     height: 100%;
     width: 100%;
-    animation: background 60s infinite ease-out; }
+    animation: background 10s infinite linear; }
   .main-header-logo {
     background: url("../img/logo_white.png") no-repeat;
-    height: 59px;
-    width: 168px;
+    height: 45px;
+    width: 148px;
     display: inline-block;
     float: left;
-    margin-top: 28px; }
+    background-size: contain;
+    margin-top: 32px; }
   .main-header-location {
     float: right;
     display: inline-block; }
@@ -183,7 +189,7 @@ p, h1, h2, h3, h4, h5, h6 {
         content: ''; }
     .main-header-location .buttons {
       vertical-align: top;
-      margin-top: 28px;
+      margin-top: 32px;
       display: inline-block; }
       .main-header-location .buttons .button:last-child {
         margin-left: 12px; }
@@ -205,6 +211,8 @@ p, h1, h2, h3, h4, h5, h6 {
           font-size: 14px; }
           .main-header-menu .list-item-link:hover {
             text-decoration: underline; }
+  .main-header-description {
+    margin-top: 180px; }
   .main-header-title {
     font-family: 'gilroy';
     font-size: 90px;
@@ -233,34 +241,6 @@ p, h1, h2, h3, h4, h5, h6 {
       font-size: 14px;
       font-family: 'proxima';
       font-weight: bold; }
-  .main-header .quote {
-    position: absolute;
-    bottom: -70px;
-    right: 0;
-    max-width: 245px; }
-    .main-header .quote-content {
-      color: #fff;
-      font-family: 'proxima';
-      font-size: 12px; }
-    .main-header .quote-profile {
-      margin-top: 22px; }
-      .main-header .quote-profile-img {
-        width: 42px;
-        height: 43px;
-        background: url("../img/first_screen_man.png") no-repeat;
-        display: inline-block;
-        float: left;
-        margin-right: 10px; }
-      .main-header .quote-profile-info .name {
-        color: #fff;
-        font-size: 12px;
-        font-family: 'proxima';
-        font-weight: bold;
-        margin-bottom: 5px; }
-      .main-header .quote-profile-info .status {
-        color: #fff;
-        font-family: 'proxima';
-        font-size: 12px; }
 
 .mrt {
   position: relative;
@@ -312,7 +292,6 @@ p, h1, h2, h3, h4, h5, h6 {
       color: #6a6680; }
 
 .why-dont {
-  background: url("../img/third_screen.png") no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 435px;
@@ -350,6 +329,15 @@ p, h1, h2, h3, h4, h5, h6 {
   .why-dont--mrt {
     position: relative;
     top: -1px; }
+    .why-dont--mrt:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: url("../img/third_screen.png") no-repeat;
+      content: '';
+      z-index: -200;
+      height: 100%; }
     .why-dont--mrt .title {
       padding-top: 50px;
       margin-bottom: 35px; }
@@ -503,6 +491,21 @@ p, h1, h2, h3, h4, h5, h6 {
       background: url("../img/equipment_photo_1.png") no-repeat;
       width: 720px;
       height: 340px; }
+      .machine-content .image-1 {
+        margin-top: 55px;
+        background: url("../img/equipment_photo_1.png") no-repeat;
+        width: 720px;
+        height: 340px; }
+      .machine-content .image-2 {
+        margin-top: 55px;
+        background: url("../img/equipment_photo_2.png") no-repeat;
+        width: 720px;
+        height: 340px; }
+      .machine-content .image-3 {
+        margin-top: 55px;
+        background: url("../img/equipment_photo_3.png") no-repeat;
+        width: 720px;
+        height: 340px; }
   .machine-about {
     max-width: 277px;
     display: inline-block; }
@@ -517,12 +520,12 @@ p, h1, h2, h3, h4, h5, h6 {
         margin-bottom: 30px; }
     .machine-about .photos .item {
       display: inline-block;
-      height: 98px;
       box-sizing: border-box;
       -moz-boz-sizing: border-box;
       margin-right: 5px;
       margin-bottom: 8px;
-      width: 131px; }
+      width: 131px;
+      border: 3px solid transparent; }
       .machine-about .photos .item {
         *zoom: 1; }
       .machine-about .photos .item:before, .machine-about .photos .item:after {
@@ -531,7 +534,8 @@ p, h1, h2, h3, h4, h5, h6 {
       .machine-about .photos .item:after {
         clear: both; }
       .machine-about .photos .item--active {
-        border: 3px solid #1e6dbb; }
+        border: 3px solid #1e6dbb;
+        position: relative; }
       .machine-about .photos .item img {
         display: inline-block;
         height: 90px;
@@ -640,12 +644,12 @@ p, h1, h2, h3, h4, h5, h6 {
   margin-right: 35px;
   box-shadow: 1px 1px 13px -4px #000; }
   .cost-popup .title {
-    font-family: 'gilroy';
+    font-family: 'proxima';
     margin-bottom: 20px;
     font-size: 24px;
     text-align: center; }
   .cost-popup input {
-    border: none;
+    border: 2px solid transparent;
     border-radius: 4px;
     background: #f2f2f2;
     color: #201f26;
@@ -656,6 +660,8 @@ p, h1, h2, h3, h4, h5, h6 {
     display: block;
     outline: none;
     height: 39px; }
+    .cost-popup input.error {
+      border: 2px solid #ef3737; }
   .cost-popup button {
     border: none;
     outline: none;
@@ -673,6 +679,99 @@ p, h1, h2, h3, h4, h5, h6 {
       line-height: 39px; }
     .cost-popup button:hover {
       cursor: pointer; }
+
+.main-popup {
+  padding: 30px;
+  display: inline-block;
+  z-index: 1000;
+  width: 250px;
+  overflow: hidden;
+  position: fixed;
+  top: 25%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  box-shadow: 1px 1px 13px -4px #000;
+  background: #fff;
+  visibility: hidden; }
+  .main-popup--active {
+    visibility: visible; }
+  .main-popup-background {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    visibility: hidden; }
+    .main-popup-background--active {
+      visibility: visible; }
+  .main-popup .title {
+    font-family: 'proxima';
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center; }
+  .main-popup input {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background: #f2f2f2;
+    color: #201f26;
+    font-family: 'proxima';
+    padding-left: 20px;
+    width: 230px;
+    margin-bottom: 10px;
+    display: block;
+    outline: none;
+    height: 39px; }
+    .main-popup input.error {
+      border: 2px solid #ef3737; }
+  .main-popup button {
+    border: none;
+    outline: none;
+    background: #1e6dbb;
+    display: block;
+    width: 100%;
+    height: 39px; }
+    .main-popup button span {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-family: 'proxima';
+      font-weight: bold;
+      display: inline-block;
+      line-height: 39px; }
+    .main-popup button:hover {
+      cursor: pointer; }
+
+.quote {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  max-width: 245px; }
+  .quote-content {
+    color: #fff;
+    font-family: 'proxima';
+    font-size: 12px; }
+  .quote-profile {
+    margin-top: 22px; }
+    .quote-profile-img {
+      width: 42px;
+      height: 43px;
+      background: url("../img/first_screen_man.png") no-repeat;
+      display: inline-block;
+      float: left;
+      margin-right: 10px; }
+    .quote-profile-info .name {
+      color: #fff;
+      font-size: 12px;
+      font-family: 'proxima';
+      font-weight: bold;
+      margin-bottom: 5px; }
+    .quote-profile-info .status {
+      color: #fff;
+      font-family: 'proxima';
+      font-size: 12px; }
 
 html {
   font-family: sans-serif;

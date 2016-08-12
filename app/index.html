@@ -9,9 +9,32 @@
 
   <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 
+  <script src="js/jquery.inputmask.js" type="text/javascript"></script>
+  <script src="js/jquery.inputmask.extensions.js" type="text/javascript"></script>
+  <script src="js/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+  <script src="js/jquery.inputmask.numeric.extensions.js" type="text/javascript"></script>
+  <script src="js/jquery.inputmask.custom.extensions.js" type="text/javascript"></script>
+
+  <script src="js/parallax.js"></script>
+
   <title>Medic</title>
 </head>
 <body>
+
+    <div class="main-popup-background"></div>
+
+    <div class="main-popup">
+      <div class="main-popup-wrapper">
+        <form class="main-form" action="contact-form-handler.php" method="post">
+          <h3 class="title">Записаться на приём</h3>
+          <input type="text" name="name" class="js-name" placeholder="Имя">
+          <input type="text" name="name" class="js-number" placeholder="Телефон">
+          <button class="">
+            <span>Записаться</span>
+          </button>
+        </form>
+      </div>
+    </div>
 
 
   <header class="main-header">
@@ -26,10 +49,10 @@
           <p class="number">+7 (495) 125-04-15</p>
           <div class="address">111033, г. Москва, Волочаевская ул. 15 к. 1</div>
           <div class="buttons">
-            <button class="button button_liteBlue">
+            <button class="button button_liteBlue js-call">
               <span>Перезвоните мне</span>
             </button>
-            <button class="button button_blue">
+            <button class="button button_blue js-button">
               <span>Записаться на прием</span>
             </button>
           </div>
@@ -59,34 +82,9 @@
       <div class="main-header-description">
         <h1 class="main-header-title">Высокоточное МРТ головного мозга</h1>
         <p class="main-header-content">После обработки результатов МРТ головного мозга врачи могут получить двух- или трехмерное изображение любого интересующего их участка мозга и увидеть сосудистые изменения, воспалительные заболевания, демиелинизирующие заболевания, дистрофические изменения</p>
-        <button class="main-header-button">
+        <button class="main-header-button js-button">
           <span>Записаться на прием</span>
         </button>
-      </div>
-
-      <div class="quote">
-
-        <p class="quote-content">
-          «Мы создали уникальный медицинский
-          комплекс, в котором развитие лучших
-          традиций медицинской науки и практики,
-          использование инновационных технологий
-          и передового оборудования в соответсвии
-          с высокими международными стандартами
-          сочетаются с заботой и индивидуальным
-          подходом к каждому пациенту.»
-        </p>
-
-        <div class="quote-profile">
-          <div class="quote-profile-img"></div>
-          <div class="quote-profile-info">
-            <p class="name">Яков Марголин</p>
-            <p class="status">
-              Генеральный директор
-              Клинического госпиталя на Яузе
-            </p>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -159,167 +157,169 @@
     </div>
   </div><!-- /mrt-->
 
-  <div id="why-dont" class="why-dont">
+  <div class="parallax">
+    <div id="why-dont" class="why-dont">
 
-    <div class="wrapper">
+      <div class="wrapper">
 
-      <h2 class="title">Показания к проведению МРТ головного мозга</h2>
+        <h2 class="title">Показания к проведению МРТ головного мозга</h2>
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Головокружения и головные боли, мигрень</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Головокружения и головные боли, мигрень</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Инсульт</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Инсульт</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Травмы головы и шейной области, сотрясение мозга</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Травмы головы и шейной области, сотрясение мозга</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Ишемическая болезнь</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Ишемическая болезнь</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Нарушения зрения или слуха, шум в ушах</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Нарушения зрения или слуха, шум в ушах</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Вегетососудистая дистония</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Вегетососудистая дистония</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Нарушения речи, памяти, интеллекта</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Нарушения речи, памяти, интеллекта</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Деформации сосудов головного мозга</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Деформации сосудов головного мозга</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Регулярные носовые кровотечения</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Регулярные носовые кровотечения</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Болезнь Паркинсона</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Болезнь Паркинсона</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">
-          Подозрение на опухоль мозга или ее наличие,
-          а также подозрение на другие заболевания мозга</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">
+            Подозрение на опухоль мозга или ее наличие,
+            а также подозрение на другие заболевания мозга</p>
+        </div><!-- /why-dont-item-->
 
-      <div class="why-dont-item">
-        <div class="circle"></div>
-        <p class="description">Обмороки</p>
-      </div><!-- /why-dont-item-->
+        <div class="why-dont-item">
+          <div class="circle"></div>
+          <p class="description">Обмороки</p>
+        </div><!-- /why-dont-item-->
 
-    </div><!-- /wrapper-->
+      </div><!-- /wrapper-->
 
-  </div><!-- /why-dont-->
+    </div><!-- /why-dont-->
 
-  <div id="why-dont--mrt" class="why-dont why-dont--mrt">
+    <div id="why-dont--mrt" class="why-dont why-dont--mrt">
 
-    <div class="wrapper">
+      <div class="wrapper">
 
-      <h2 class="title">Противопоказания к МРТ</h2>
+        <h2 class="title">Противопоказания к МРТ</h2>
 
-      <p class="description">Противопоказания можно разделить на две группы: абсолютные и относительные.</p>
-      <p class="description">При абсолютных противопоказаниях исследование при помощи МРТ недопустимо.</p>
-      <p class="description">При относительных противопоказаниях исследование возможно при определенных условиях.</p>
+        <p class="description">Противопоказания можно разделить на две группы: абсолютные и относительные.</p>
+        <p class="description">При абсолютных противопоказаниях исследование при помощи МРТ недопустимо.</p>
+        <p class="description">При относительных противопоказаниях исследование возможно при определенных условиях.</p>
 
-      <div class="why-dont-advantages">
+        <div class="why-dont-advantages">
 
-        <div class="left">
+          <div class="left">
 
-          <div class="name">Относительные противопоказания</div>
+            <div class="name">Относительные противопоказания</div>
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Беременность</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Беременность</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Суставные протезы</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Суставные протезы</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Инсутиловый насос</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Инсутиловый насос</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Искусственный сердечный клапан</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Искусственный сердечный клапан</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Клаустрофобия, приступы панических атак</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Клаустрофобия, приступы панических атак</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Невозможность сохранять неподвижное положение</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Невозможность сохранять неподвижное положение</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Привитые электронные приборы (нейростимуляторы)</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Привитые электронные приборы (нейростимуляторы)</p>
+            </div><!-- /why-dont-item-->
 
-        </div>
+          </div>
 
-        <div class="right">
+          <div class="right">
 
-          <div class="name">Абсолютные противопоказания</div>
+            <div class="name">Абсолютные противопоказания</div>
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Беременность, I триместр</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Беременность, I триместр</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Наличие кардиостимулятора</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Наличие кардиостимулятора</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Наличие имплантатов среднего уха</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Наличие имплантатов среднего уха</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Наличие металлических инородных тел (осколки, <br>стружка и т.д)</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Наличие металлических инородных тел (осколки, <br>стружка и т.д)</p>
+            </div><!-- /why-dont-item-->
 
-          <div class="why-dont-item">
-            <div class="circle"></div>
-            <p class="description">Наличие металлических клипс/зажимов на сосудах <br> головного мозга</p>
-          </div><!-- /why-dont-item-->
+            <div class="why-dont-item">
+              <div class="circle"></div>
+              <p class="description">Наличие металлических клипс/зажимов на сосудах <br> головного мозга</p>
+            </div><!-- /why-dont-item-->
 
-        </div><!-- /right -->
+          </div><!-- /right -->
 
-      </div><!-- /why-dont-advantages -->
+        </div><!-- /why-dont-advantages -->
 
-    </div><!-- /wrapper -->
+      </div><!-- /wrapper -->
 
-  </div><!-- /why-dont-->
+    </div><!-- /why-dont-->
+  </div>
 
   <div id="about-med" class="about-med">
 
@@ -342,6 +342,31 @@
         </div>
 
       </div><!-- /about-content -->
+
+      <div class="quote">
+
+        <p class="quote-content">
+          «Мы создали уникальный медицинский
+          комплекс, в котором развитие лучших
+          традиций медицинской науки и практики,
+          использование инновационных технологий
+          и передового оборудования в соответсвии
+          с высокими международными стандартами
+          сочетаются с заботой и индивидуальным
+          подходом к каждому пациенту.»
+        </p>
+
+        <div class="quote-profile">
+          <div class="quote-profile-img"></div>
+          <div class="quote-profile-info">
+            <p class="name">Яков Марголин</p>
+            <p class="status">
+              Генеральный директор
+              Клинического госпиталя на Яузе
+            </p>
+          </div>
+        </div>
+      </div>
 
       <div class="about-med-items">
         <p class="content">На фото: Главное здание Клинического госпиталя на Яузе</p>
@@ -604,11 +629,11 @@
         </div>
 
         <div class="cost-popup">
-          <form action="" method="post">
+          <form class="cost-form" action="contact-form-handler.php" method="post">
             <h3 class="title">Записаться на приём</h3>
             <input type="text" name="name" class="js-name" placeholder="Имя">
             <input type="text" name="name" class="js-number" placeholder="Телефон">
-            <button class="js-button">
+            <button class="">
               <span>Записаться</span>
             </button>
           </form>

@@ -40,7 +40,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .button {
-  padding: 15px 20px;
+  padding: 10px 20px;
   background: none;
   border: none;
   outline: none;
@@ -82,7 +82,7 @@ p, h1, h2, h3, h4, h5, h6 {
 // Top site-header
 
 .site-header {
-  //position: fixed;
+  position: absolute;;
   width: 100%;
   @include clearfix-micro();
   z-index: 20;
@@ -92,10 +92,17 @@ p, h1, h2, h3, h4, h5, h6 {
     top: 0;
     background: #fff;
     height: 130px;
+    box-shadow: 0px -2px 6px #000;
+    transition: all 0.5s ease;
 
     & .main-header {
       &-logo {
         background: url('../img/logo.png') no-repeat;
+        height: 45px;
+        width: 148px;
+        display: inline-block;
+        background-size: contain;
+        margin-top: 32px;
       }
 
       &-location {
@@ -149,11 +156,6 @@ p, h1, h2, h3, h4, h5, h6 {
   padding-bottom: 110px;
   overflow: hidden;
 
-  &--active {
-    margin-top: 125px;
-    padding-bottom: 0;
-  }
-
   &:before {
     z-index: 2;
     position: absolute;
@@ -181,17 +183,18 @@ p, h1, h2, h3, h4, h5, h6 {
     left: 0;
     height: 100%;
     width: 100%;
-    animation: background 60s infinite ease-out;
+    animation: background 10s infinite linear;
   }
 
 
   &-logo {
     background: url('../img/logo_white.png') no-repeat;
-    height: 59px;
-    width: 168px;
+    height: 45px;
+    width: 148px;
     display: inline-block;
     float: left;
-    margin-top: 28px;
+    background-size: contain;
+    margin-top: 32px;
   }
 
   &-location {
@@ -232,7 +235,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
     .buttons {
       vertical-align: top;
-      margin-top: 28px;
+      margin-top: 32px;
       display: inline-block;
 
       .button {
@@ -275,7 +278,7 @@ p, h1, h2, h3, h4, h5, h6 {
   }
 
   &-description {
-
+    margin-top: 180px;
   }
 
   &-title {
@@ -316,49 +319,6 @@ p, h1, h2, h3, h4, h5, h6 {
     }
   }
 
-  .quote {
-    position: absolute;
-    bottom: -70px;
-    right: 0;
-    max-width: 245px;
-
-    &-content {
-      color: #fff;
-      font-family: 'proxima';
-      font-size: 12px;
-    }
-
-    &-profile {
-      margin-top: 22px;
-
-      &-img {
-        width: 42px;
-        height: 43px;
-        background: url('../img/first_screen_man.png') no-repeat;
-        display: inline-block;
-        float: left;
-        margin-right: 10px;
-      }
-
-      &-info {
-
-        .name {
-          color: #fff;
-          font-size: 12px;
-          font-family: 'proxima';
-          font-weight: bold;
-          margin-bottom: 5px;
-        }
-
-        .status {
-          color: #fff;
-          font-family: 'proxima';
-          font-size: 12px;
-        }
-
-      }
-    }
-  }
 }
 
 
@@ -441,7 +401,6 @@ p, h1, h2, h3, h4, h5, h6 {
 // Why-dont
 
 .why-dont {
-  background: url('../img/third_screen.png')no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 435px;
@@ -497,6 +456,17 @@ p, h1, h2, h3, h4, h5, h6 {
   &--mrt {
     position: relative;
     top: -1px;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: url('../img/third_screen.png')no-repeat;
+      content: '';
+      z-index: -200;
+      height: 100%;
+    }
 
     .title {
       padding-top: 50px;
@@ -727,6 +697,27 @@ p, h1, h2, h3, h4, h5, h6 {
       background: url('../img/equipment_photo_1.png') no-repeat;
       width: 720px;
       height: 340px;
+
+      &-1 {
+        margin-top: 55px;
+        background: url('../img/equipment_photo_1.png') no-repeat;
+        width: 720px;
+        height: 340px;
+      }
+
+      &-2 {
+        margin-top: 55px;
+        background: url('../img/equipment_photo_2.png') no-repeat;
+        width: 720px;
+        height: 340px;
+      }
+
+      &-3 {
+        margin-top: 55px;
+        background: url('../img/equipment_photo_3.png') no-repeat;
+        width: 720px;
+        height: 340px;
+      }
     }
   }
 
@@ -754,15 +745,17 @@ p, h1, h2, h3, h4, h5, h6 {
       .item {
         display: inline-block;
         @include clearfix-micro();
-        height: 98px;
+        //height: 98px;
         box-sizing: border-box;
         -moz-boz-sizing: border-box;
         margin-right: 5px;
         margin-bottom: 8px;
         width: 131px;
+        border: 3px solid transparent;
 
         &--active {
           border: 3px solid #1e6dbb;
+          position: relative;
         }
         img {
           display: inline-block;
@@ -911,14 +904,14 @@ p, h1, h2, h3, h4, h5, h6 {
     box-shadow: 1px 1px 13px -4px #000;
 
     .title {
-      font-family: 'gilroy';
+      font-family: 'proxima';
       margin-bottom: 20px;
       font-size: 24px;
       text-align: center;
     }
 
     input {
-      border: none;
+      border: 2px solid transparent;
       border-radius: 4px;
       background: #f2f2f2;
       color: #201f26;
@@ -929,6 +922,10 @@ p, h1, h2, h3, h4, h5, h6 {
       display: block;
       outline: none;
       height: 39px;
+
+      &.error {
+        border: 2px solid #ef3737;
+      }
     }
 
     button {
@@ -952,6 +949,136 @@ p, h1, h2, h3, h4, h5, h6 {
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+}
+
+.main {
+
+  &-popup {
+    padding: 30px;
+    display: inline-block;
+    z-index: 1000;
+    width: 250px;
+    overflow: hidden;
+    position: fixed;
+    top: 25%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    box-shadow: 1px 1px 13px -4px #000;
+    background: #fff;
+    visibility: hidden;
+
+    &--active {
+      visibility: visible;
+    }
+
+    &-background {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0.5;
+      z-index: 100;
+      position: fixed;
+      top: 0;
+      visibility: hidden;
+
+      &--active {
+        visibility: visible;
+      }
+    }
+
+    .title {
+      font-family: 'proxima';
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    input {
+      border: 2px solid transparent;
+      border-radius: 4px;
+      background: #f2f2f2;
+      color: #201f26;
+      font-family: 'proxima';
+      padding-left: 20px;
+      width: 230px;
+      margin-bottom: 10px;
+      display: block;
+      outline: none;
+      height: 39px;
+
+      &.error {
+        border: 2px solid #ef3737;
+      }
+    }
+
+    button {
+      border: none;
+      outline: none;
+      background: #1e6dbb;
+      display: block;
+      width: 100%;
+      height: 39px;
+
+      span {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: 'proxima';
+        font-weight: bold;
+        display: inline-block;
+        line-height: 39px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.quote {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  max-width: 245px;
+
+  &-content {
+    color: #fff;
+    font-family: 'proxima';
+    font-size: 12px;
+  }
+
+  &-profile {
+    margin-top: 22px;
+
+    &-img {
+      width: 42px;
+      height: 43px;
+      background: url('../img/first_screen_man.png') no-repeat;
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+    }
+
+    &-info {
+
+      .name {
+        color: #fff;
+        font-size: 12px;
+        font-family: 'proxima';
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .status {
+        color: #fff;
+        font-family: 'proxima';
+        font-size: 12px;
+      }
+
     }
   }
 }
