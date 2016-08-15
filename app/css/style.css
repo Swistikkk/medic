@@ -773,6 +773,56 @@ p, h1, h2, h3, h4, h5, h6 {
       font-family: 'proxima';
       font-size: 12px; }
 
+.contacts-contant .title {
+  color: #201f26;
+  font-size: 90px;
+  font-family: 'gilroy';
+  margin-bottom: 18px;
+  padding-top: 75px;
+  padding-bottom: 18px; }
+
+.contacts-contant .menu {
+  margin: 0;
+  padding: 0;
+  float: left;
+  margin-right: 78px; }
+  .contacts-contant .menu:last-child {
+    margin-right: 0; }
+  .contacts-contant .menu .item {
+    list-style: none;
+    font-size: 16px;
+    color: #000;
+    font-family: 'proxima';
+    padding-left: 30px;
+    margin-bottom: 32px;
+    position: relative; }
+    .contacts-contant .menu .item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url("../img/contacts_icon.png") no-repeat;
+      width: 19px;
+      height: 30px; }
+    .contacts-contant .menu .item:nth-child(2):before {
+      width: 20px;
+      height: 30px;
+      background-position: -36px 0; }
+    .contacts-contant .menu .item-link {
+      color: #000;
+      font-size: 16px;
+      text-decoration: none; }
+  .contacts-contant .menu--next .item:nth-child(1):before {
+    background-position: -19px 0;
+    width: 17px; }
+  .contacts-contant .menu--next .item:nth-child(2):before {
+    background-position: -56px 0;
+    width: 15px;
+    left: 3px; }
+
+.contacts .map {
+  margin-top: 25px; }
+
 html {
   font-family: sans-serif;
   /* 1 */
