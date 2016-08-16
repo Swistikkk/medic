@@ -1,5 +1,16 @@
 $(document).ready(function(){
 
+  function loader() {
+    $('body').addClass('loader');
+
+    // loader
+    setTimeout(function(){
+      window.scrollTo(0, 0);
+      $('body').removeClass('loader');
+      $('.main-header-loader').fadeOut();
+    }, 3000);
+  }
+
   $('.js-number').inputmask("8 (999) 999-99-99");
 
   $('.parallax').parallax({imageSrc: 'img/third_screen.png'});
@@ -35,15 +46,31 @@ $(document).ready(function(){
 
   function gallery() {
     var med = $('#about-med');
-    var items = $('.about-med-items');
+    var items = $('.content-wrapper');
     var idMed = document.getElementById('about-med');
 
-    items.on('click', function(e){
+    items.on('click', function(e) {
       for(var i = 0; i < this.children.length; i++) {
         this.children[i].classList.remove('item--active');
         if(e.target == this.children[i]) {
           this.children[i].classList.add('item--active');
-          var className = "about-med-image_" + i;
+          var className = "about-med-image_" + (i + 1);
+          var m = i;
+
+          switch (m) {
+            case 0:
+              $('.about-med-items .content').text("На фото: Главное здание Клинического госпиталя на Яузе");
+              break;
+            case 1:
+              $('.about-med-items .content').text("На фото: Приемная-регистратура Клинического госпиталя на Яузе");
+              break;
+            case 2:
+              $('.about-med-items .content').text("На фото: Операционная");
+              break;
+            case 3:
+              $('.about-med-items .content').text("На фото: Рентген");
+              break;
+          }
 
           if(idMed.classList.length > 1) {
             idMed.classList.remove(idMed.classList[idMed.classList.length - 1]);
@@ -54,26 +81,6 @@ $(document).ready(function(){
       }
     });
 
-  }
-
-  function flyPopup() {
-    var flyPopup = $('.cost-popup');
-    var forPopup = flyPopup.offset().top - flyPopup.height();
-    var items = $('.cost-items');
-
-    window.addEventListener('scroll', function(e){
-      var y = window.scrollY;
-      console.info(y);
-      console.log(items.offset().top)
-
-      if(y > forPopup && y < (items.offset().top + items.height() - 500)) {
-        flyPopup.css('top', (y - forPopup) + 'px');
-      } else if(y > (items.offset().top + items.height() - 500)) {
-        flyPopup.css('top', y < (items.offset().top + items.height() - 499) + 'px');
-      } else {
-        flyPopup.css('top', 0 + 'px');
-      }
-    });
   }
 
   function activePopup(){
@@ -165,11 +172,47 @@ $(document).ready(function(){
     });
   }
 
+  function flyPopup() {
+    var flyPopup = $('.cost-popup');
+    var forPopup = flyPopup.offset().top - flyPopup.height();
+    var items = $('.cost-items');
+
+    window.addEventListener('scroll', function(e){
+      var y = window.scrollY;
+
+      upArray();
+
+      if(y < 5300 + flyPopup.outerHeight()) {
+        flyPopup.css('top', 0 + 'px');
+      } else if(y > (5300 + flyPopup.outerHeight())  && y < (5300 + items.height() - 50)) {
+        flyPopup.css('top', y - flyPopup.height() - 5300 + 'px');
+      } else if(y > 5300 + items.height()) {
+        flyPopup.css('top', items.outerHeight() - flyPopup.outerHeight() + 'px');
+      }
+    });
+  }
+
+  function upArray() {
+    var up = document.querySelector('.up');
+
+    up.addEventListener('click', function(){
+      window.scrollTo(0, 0);
+    });
+
+    if(window.scrollY > 300) {
+      up.classList.add("up--active");
+    } else {
+      up.classList.remove("up--active");
+    }
+  }
+
+  loader();
   validationForms();
   sliderTechnic();
   activePopup();
-  flyPopup();
   gallery();
   scrollingMenu();
+  flyPopup();
+  upArray();
   fixedHeader();
 });
