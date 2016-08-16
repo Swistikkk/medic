@@ -4,7 +4,8 @@ var browserSync = require('browser-sync');
 
 
 gulp.task('scss', function(){
-  return gulp.src('app/scss/style.scss')
+  //return gulp.src('app/scss/style.scss')
+  return gulp.src('app/scss/temporarily.scss')
    .pipe(scss(
      //{outputStyle: 'compressed'}
    ).on('error', scss.logError))
@@ -21,7 +22,7 @@ gulp.task('browser-sync', function(){
 });
 
 gulp.task('watch', ['browser-sync'], function(){
-  gulp.watch('app/scss/**/*.scss', ['scss']);
+  gulp.watch('app/scss/**/*.scss', '!app/scss/style.scss', '!app/scss/modules/**/*.scss', ['scss']);
   gulp.watch('app/css/**/*.css', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
   gulp.watch('app/*.html', browserSync.reload);
