@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+  $('.main-header-logo').on('click', function(){
+    window.scrollTo(0, 0);
+  });
+  $('.js-number').inputmask("8 (999) 999-99-99");
+  $('.parallax').parallax({imageSrc: 'img/third_screen.png'});
+
   function loader() {
     $('body').addClass('loader');
 
@@ -10,10 +16,6 @@ $(document).ready(function(){
       $('.main-header-loader').fadeOut();
     }, 3000);
   }
-
-  $('.js-number').inputmask("8 (999) 999-99-99");
-
-  $('.parallax').parallax({imageSrc: 'img/third_screen.png'});
 
   function fixedHeader() {
     var header = $('.site-header');
