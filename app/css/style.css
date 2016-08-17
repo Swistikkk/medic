@@ -59,6 +59,14 @@ p, h1, h2, h3, h4, h5, h6 {
     display: table; }
   .wrapper:after {
     clear: both; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .wrapper {
+      max-width: initial;
+      padding: 0 20px; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .wrapper {
+      max-width: initial;
+      padding: 0 10px; } }
 
 .button {
   padding: 10px 20px;
@@ -102,6 +110,12 @@ p, h1, h2, h3, h4, h5, h6 {
     height: 95px;
     box-shadow: 0px -2px 6px #000;
     transition: all 0.5s ease; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .site-header--active {
+        height: 70px; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .site-header--active {
+        height: 70px; } }
     .site-header--active .main-header-logo {
       background: url("../img/logo.png") no-repeat;
       height: 45px;
@@ -109,12 +123,25 @@ p, h1, h2, h3, h4, h5, h6 {
       display: inline-block;
       background-size: contain;
       margin-top: 10px; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .site-header--active .main-header-logo {
+          width: 105px;
+          margin-top: 18px; } }
     .site-header--active .main-header-location .number {
       color: #bfbfbf;
       padding-top: 19px; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .site-header--active .main-header-location .number {
+          display: none; } }
     .site-header--active .main-header-location .address {
       color: #a1a1a1;
       margin-top: 17px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .site-header--active .main-header-location .address {
+          display: none; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .site-header--active .main-header-location .address {
+          display: none; } }
       .site-header--active .main-header-location .address:before {
         background: url("../img/gray.png") no-repeat;
         position: absolute;
@@ -126,6 +153,16 @@ p, h1, h2, h3, h4, h5, h6 {
         opacity: 0.7; }
     .site-header--active .main-header-location .buttons {
       margin-top: 15px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .site-header--active .main-header-location .buttons {
+          display: inline-block; }
+          .site-header--active .main-header-location .buttons .button_liteBlue {
+            display: none; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .site-header--active .main-header-location .buttons {
+          display: inline-block; }
+          .site-header--active .main-header-location .buttons .button_liteBlue {
+            display: none; } }
     .site-header--active .main-header-menu {
       position: relative;
       top: -30px;
@@ -140,6 +177,14 @@ p, h1, h2, h3, h4, h5, h6 {
   position: relative;
   padding-bottom: 110px;
   overflow: hidden; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .main-header {
+      max-height: 640px;
+      padding-bottom: 94px; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .main-header {
+      padding-bottom: 0;
+      min-height: 530px; } }
   .main-header:before {
     z-index: 2;
     position: absolute;
@@ -207,6 +252,14 @@ p, h1, h2, h3, h4, h5, h6 {
           top: 30px;
           left: 220px;
           animation: scale 2.5s ease-in-out infinite; }
+          @media only screen and (min-width: 767px) and (max-width: 1279px) {
+            .main-header-loader-wrapper .loader::after {
+              left: 50%;
+              margin-left: -30px; } }
+          @media only screen and (min-width: 320px) and (max-width: 767px) {
+            .main-header-loader-wrapper .loader::after {
+              left: 50%;
+              margin-left: -30px; } }
         .main-header-loader-wrapper .loader div {
           position: absolute;
           width: 30px;
@@ -216,6 +269,14 @@ p, h1, h2, h3, h4, h5, h6 {
           top: 45px;
           left: 235px;
           animation: move 2.5s ease-in-out infinite alternate; }
+          @media only screen and (min-width: 767px) and (max-width: 1279px) {
+            .main-header-loader-wrapper .loader div {
+              left: 50%;
+              margin-left: -30px; } }
+          @media only screen and (min-width: 320px) and (max-width: 767px) {
+            .main-header-loader-wrapper .loader div {
+              left: 50%;
+              margin-left: -30px; } }
           .main-header-loader-wrapper .loader div::after, .main-header-loader-wrapper .loader div::before {
             content: '';
             display: block;
@@ -241,6 +302,9 @@ p, h1, h2, h3, h4, h5, h6 {
     float: left;
     background-size: contain;
     margin-top: 32px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .main-header-logo {
+        width: 105px; } }
   .main-header-location {
     float: right;
     display: inline-block; }
@@ -251,6 +315,12 @@ p, h1, h2, h3, h4, h5, h6 {
       display: inline-block;
       padding-top: 42px;
       margin-right: 20px; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .main-header-location .number {
+          float: right;
+          margin-right: 0;
+          padding-top: 38px;
+          font-size: 20px; } }
     .main-header-location .address {
       color: #fff;
       font-size: 14px;
@@ -262,6 +332,12 @@ p, h1, h2, h3, h4, h5, h6 {
       margin-right: 15px;
       position: relative;
       padding-left: 24px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .main-header-location .address {
+          margin-top: 39px; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .main-header-location .address {
+          display: none; } }
       .main-header-location .address:before {
         position: absolute;
         left: 0;
@@ -274,10 +350,22 @@ p, h1, h2, h3, h4, h5, h6 {
       vertical-align: top;
       margin-top: 32px;
       display: inline-block; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .main-header-location .buttons {
+          display: none; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .main-header-location .buttons {
+          display: none; } }
       .main-header-location .buttons .button:last-child {
         margin-left: 12px; }
   .main-header-menu {
     margin-top: 20px; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .main-header-menu {
+        display: none; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .main-header-menu {
+        display: none; } }
     .main-header-menu .list {
       margin: 0;
       padding: 0; }
@@ -296,12 +384,23 @@ p, h1, h2, h3, h4, h5, h6 {
             text-decoration: underline; }
   .main-header-description {
     margin-top: 180px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .main-header-description {
+        margin-top: 135px; } }
   .main-header-title {
     font-family: 'gilroy';
     font-size: 90px;
     color: #fff;
     line-height: 85px;
     margin-bottom: 40px; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .main-header-title {
+        font-size: 60px;
+        line-height: 50px; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .main-header-title {
+        font-size: 32px;
+        line-height: 32px; } }
   .main-header-content {
     color: #fff;
     max-width: 721px;
@@ -315,6 +414,9 @@ p, h1, h2, h3, h4, h5, h6 {
     border: none;
     outline: none;
     border-radius: 4px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .main-header-button {
+        width: 100%; } }
     .main-header-button:hover {
       cursor: pointer;
       background: #e6e6e6; }
@@ -328,8 +430,17 @@ p, h1, h2, h3, h4, h5, h6 {
 .mrt {
   position: relative;
   min-width: 600px; }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .mrt {
+      min-width: initial; } }
   .mrt-wrapper {
     padding: 95px 0; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .mrt-wrapper {
+        padding: 50px 0; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .mrt-wrapper {
+        padding: 35px 0; } }
   .mrt:before {
     content: '';
     position: absolute;
@@ -338,12 +449,22 @@ p, h1, h2, h3, h4, h5, h6 {
     background: url("../img/about_photos.png") no-repeat;
     width: 489px;
     height: 527px; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .mrt:before {
+        display: none; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .mrt:before {
+        display: none; } }
   .mrt-title {
     font-family: 'gilroy';
     font-size: 90px;
     line-height: 80px;
     color: #201f26;
     margin-bottom: 40px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .mrt-title {
+        font-size: 32px;
+        line-height: 32px; } }
   .mrt-description {
     color: #6a6680;
     max-width: 721px;
@@ -353,6 +474,9 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #000;
     font-size: 16px;
     margin-bottom: 30px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .mrt-info {
+        font-size: 12px; } }
     .mrt-info img {
       vertical-align: middle;
       padding-right: 15px; }
@@ -362,6 +486,18 @@ p, h1, h2, h3, h4, h5, h6 {
     position: relative;
     margin-top: 30px;
     margin-right: 15px; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .mrt-item {
+        max-width: 300px;
+        margin-right: 60px;
+        vertical-align: top;
+        margin-bottom: 47px; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .mrt-item {
+        max-width: initial;
+        margin-right: 0;
+        margin-bottom: 25px;
+        text-align: center; } }
     .mrt-item:last-child {
       margin-right: 0; }
     .mrt-item-img {
@@ -396,25 +532,62 @@ p, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 60px;
     line-height: 85px;
     font-family: 'gilroy'; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .why-dont .title {
+        font-size: 58px;
+        line-height: 58px;
+        margin-bottom: 30px;
+        padding-top: 60px; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .why-dont .title {
+        font-size: 29px;
+        line-height: 32px;
+        padding-top: 25px;
+        margin-bottom: 30px; } }
   .why-dont .description {
     color: #fff;
     font-size: 16px; }
   .why-dont-advantages {
     margin-top: 50px; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .why-dont-advantages {
+        margin-top: 20px; } }
     .why-dont-advantages .name {
       color: #fff;
       font-size: 24px;
       margin-bottom: 30px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .why-dont-advantages .name {
+          padding-top: 15px; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .why-dont-advantages .name {
+          padding-top: 15px; } }
     .why-dont-advantages .left {
       max-width: 538px;
       display: inline-block;
       vertical-align: top; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .why-dont-advantages .left {
+          max-width: initial;
+          display: block; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .why-dont-advantages .left {
+          display: block;
+          max-width: initial; } }
       .why-dont-advantages .left .circle {
         background: #ffc000; }
     .why-dont-advantages .right {
       display: inline-block;
       vertical-align: top;
       max-width: 520px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .why-dont-advantages .right {
+          max-width: initial;
+          display: block; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .why-dont-advantages .right {
+          display: block;
+          max-width: initial; } }
       .why-dont-advantages .right .circle {
         background: #e52020; }
   .why-dont--mrt {
@@ -432,6 +605,13 @@ p, h1, h2, h3, h4, h5, h6 {
     .why-dont--mrt .title {
       padding-top: 50px;
       margin-bottom: 35px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .why-dont--mrt .title {
+          padding-top: 0; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .why-dont--mrt .title {
+          padding-top: 0;
+          margin-bottom: 15px; } }
   .why-dont-item {
     background: #fff;
     display: inline-block;
@@ -441,6 +621,17 @@ p, h1, h2, h3, h4, h5, h6 {
     margin-right: 18px;
     vertical-align: top;
     margin-bottom: 10px; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .why-dont-item {
+        display: block;
+        width: initial;
+        margin-right: 0;
+        padding-right: 20px; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .why-dont-item {
+        width: initial;
+        display: block;
+        margin-right: 0; } }
     .why-dont-item .circle {
       width: 7px;
       height: 7px;
@@ -462,6 +653,9 @@ p, h1, h2, h3, h4, h5, h6 {
   position: relative;
   top: -1px;
   height: 700px; }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .about-med {
+      height: 560px; } }
   .about-med-image_1 {
     background: url("../img/photo_1.png") no-repeat;
     background-size: cover;
@@ -492,6 +686,17 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #fff;
     font-size: 90px;
     font-family: 'gilroy'; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .about-med-title {
+        font-size: 58px;
+        line-height: 58px;
+        padding-top: 50px; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .about-med-title {
+        font-size: 32px;
+        line-height: 32px;
+        padding-top: 35px;
+        margin-bottom: 20px; } }
   .about-med-description {
     max-width: 720px;
     color: #fff;
@@ -517,9 +722,18 @@ p, h1, h2, h3, h4, h5, h6 {
     position: absolute;
     bottom: 0;
     left: 0; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .about-med-items {
+        right: 0; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .about-med-items {
+        display: none; } }
     .about-med-items .content {
       color: #fff;
       font-size: 16px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .about-med-items .content {
+          margin-left: 20px; } }
       .about-med-items .content-wrapper {
         margin: 0 auto;
         text-align: center; }
@@ -556,14 +770,33 @@ p, h1, h2, h3, h4, h5, h6 {
 .machine {
   padding-top: 155px;
   padding-bottom: 40px; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .machine {
+      padding-top: 70px; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .machine {
+      padding-top: 35px;
+      margin-bottom: 0px; } }
   .machine-content {
     float: left;
     margin-right: 100px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .machine-content {
+        float: none;
+        margin-right: 0; } }
     .machine-content .title {
       color: #201f26;
       font-size: 90px;
       font-family: 'gilroy';
       margin-bottom: 22px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .machine-content .title {
+          font-size: 58px;
+          height: 58px; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .machine-content .title {
+          line-height: 32px;
+          font-size: 32px; } }
     .machine-content .description {
       font-size: 16px;
       color: #6a6680;
@@ -573,24 +806,48 @@ p, h1, h2, h3, h4, h5, h6 {
       background: url("../img/equipment_photo_1.png") no-repeat;
       width: 720px;
       height: 340px; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .machine-content .image {
+          width: 100%;
+          height: 200px;
+          background-size: contain; } }
       .machine-content .image-1 {
         margin-top: 55px;
         background: url("../img/equipment_photo_1.png") no-repeat;
         width: 720px;
         height: 340px; }
+        @media only screen and (min-width: 320px) and (max-width: 767px) {
+          .machine-content .image-1 {
+            width: 100%;
+            height: 200px;
+            background-size: contain; } }
       .machine-content .image-2 {
         margin-top: 55px;
         background: url("../img/equipment_photo_2.png") no-repeat;
         width: 720px;
         height: 340px; }
+        @media only screen and (min-width: 320px) and (max-width: 767px) {
+          .machine-content .image-2 {
+            width: 100%;
+            height: 200px;
+            background-size: contain; } }
       .machine-content .image-3 {
         margin-top: 55px;
         background: url("../img/equipment_photo_3.png") no-repeat;
         width: 720px;
         height: 340px; }
+        @media only screen and (min-width: 320px) and (max-width: 767px) {
+          .machine-content .image-3 {
+            width: 100%;
+            height: 200px;
+            background-size: contain; } }
   .machine-about {
     max-width: 277px;
     display: inline-block; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .machine-about {
+        max-width: initial;
+        margin-top: 30px; } }
     .machine-about .name {
       color: #201f26;
       font-size: 24px;
@@ -598,6 +855,11 @@ p, h1, h2, h3, h4, h5, h6 {
       margin-bottom: 20px; }
     .machine-about .brend {
       margin-bottom: 50px; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .machine-about .brend {
+          width: 50%;
+          display: inline-block;
+          float: left; } }
       .machine-about .brend img {
         margin-bottom: 30px; }
     .machine-about .photos .item {
@@ -627,22 +889,51 @@ p, h1, h2, h3, h4, h5, h6 {
 .doctors {
   background: #f2f3f7;
   padding: 90px 0; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .doctors {
+      padding: 50px 0 25px; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .doctors {
+      padding: 35px 0; } }
   .doctors-title {
     color: #201f26;
     font-size: 90px;
     font-family: 'gilroy';
     margin-bottom: 22px; }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .doctors-title {
+        font-size: 58px;
+        line-height: 58px; } }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .doctors-title {
+        line-height: 32px;
+        font-size: 32px; } }
   .doctors-description {
     font-size: 16px;
     color: #6a6680; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .doctors-description {
+        font-size: 14px; } }
   .doctors-items {
     margin-top: 45px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .doctors-items {
+        text-align: center; } }
     .doctors-items .item {
       display: inline-block;
       margin-right: 2px;
       max-width: 177px;
       text-align: left;
       vertical-align: top; }
+      @media only screen and (min-width: 767px) and (max-width: 1279px) {
+        .doctors-items .item {
+          margin-right: 80px;
+          margin-bottom: 35px; }
+          .doctors-items .item:nth-child(3n) {
+            margin-right: 0; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .doctors-items .item {
+          margin-bottom: 50px; } }
     .doctors-items .name {
       margin-top: 27px;
       font-size: 16px;
@@ -663,23 +954,46 @@ p, h1, h2, h3, h4, h5, h6 {
   font-family: 'gilroy';
   margin-bottom: 22px;
   padding-top: 90px; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .cost-title {
+      font-size: 58px;
+      line-height: 58px;
+      padding-top: 50px; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .cost-title {
+      font-size: 32px;
+      line-height: 32px;
+      padding-top: 35px; } }
 
 .cost-description {
   font-size: 16px;
   color: #6a6680;
   max-width: 721px;
   margin-bottom: 60px; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .cost-description {
+      margin-bottom: 30px; } }
 
 .cost-items {
   display: inline-block;
   position: relative;
   margin-right: 37px; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .cost-items {
+      margin-right: 0; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .cost-items {
+      margin-right: 0; } }
   .cost-items .item {
     width: 721px;
     background: #f7f7f7;
     border-radius: 12px;
     position: relative;
     margin-bottom: 10px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .cost-items .item {
+        width: 100%;
+        border-radius: 0; } }
     .cost-items .item:after {
       content: '';
       position: absolute;
@@ -689,6 +1003,9 @@ p, h1, h2, h3, h4, h5, h6 {
       width: 100%;
       background: url("../img/prices_tab_shadow.png") no-repeat;
       opacity: 0.3; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .cost-items .item:after {
+          display: none; } }
     .cost-items .item-description {
       display: inline-block;
       position: relative;
@@ -698,6 +1015,11 @@ p, h1, h2, h3, h4, h5, h6 {
       color: #000;
       border-right: 1px solid #e6e6e6;
       vertical-align: middle; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .cost-items .item-description {
+          width: initial;
+          padding: 26px 10px 26px 10px;
+          width: 64%; } }
     .cost-items .item-prize {
       display: inline-block;
       font-size: 24px;
@@ -706,6 +1028,10 @@ p, h1, h2, h3, h4, h5, h6 {
       width: 100px;
       text-align: right;
       vertical-align: middle; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .cost-items .item-prize {
+          font-size: 16px;
+          width: 50px; } }
       .cost-items .item-prize:before {
         content: 'руб.';
         position: absolute;
@@ -725,6 +1051,12 @@ p, h1, h2, h3, h4, h5, h6 {
   float: right;
   margin-right: 35px;
   box-shadow: 1px 1px 13px -4px #000; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .cost-popup {
+      display: none; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .cost-popup {
+      display: none; } }
   .cost-popup .title {
     font-family: 'proxima';
     margin-bottom: 20px;
@@ -837,6 +1169,12 @@ p, h1, h2, h3, h4, h5, h6 {
   bottom: 70px;
   right: 0;
   max-width: 245px; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .quote {
+      right: 15px; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .quote {
+      display: none; } }
   .quote-content {
     color: #fff;
     font-family: 'proxima';
@@ -868,6 +1206,16 @@ p, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 18px;
   padding-top: 75px;
   padding-bottom: 18px; }
+  @media only screen and (min-width: 767px) and (max-width: 1279px) {
+    .contacts-contant .title {
+      font-size: 58px;
+      line-height: 58px;
+      padding-top: 45px; } }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .contacts-contant .title {
+      font-size: 32px;
+      line-height: 32px;
+      padding-top: 25px; } }
 
 .contacts-contant .menu {
   margin: 0;

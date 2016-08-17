@@ -18,9 +18,12 @@
 
 }
 
-
 body {
   font-family: 'proxima';
+
+  &.loader {
+    overflow: hidden;
+  }
 }
 
 // Global classes
@@ -37,6 +40,16 @@ p, h1, h2, h3, h4, h5, h6 {
   height: 100%;
 
   @include clearfix-micro();
+
+  @include adaptive(pad) {
+    max-width: initial;
+    padding: 0 20px;
+  }
+
+  @include adaptive(mobile) {
+    max-width: initial;
+    padding: 0 10px;
+  }
 }
 
 .button {
@@ -52,18 +65,18 @@ p, h1, h2, h3, h4, h5, h6 {
   }
 
   &_liteBlue {
-    background: #32c9e4;
+    background: #bfa35f;
 
     &:hover {
-      background: lighten(#32c9e4, 10%);
+      background: lighten(#bfa35f, 10%);
     }
   }
 
   &_blue {
-    background: #1e6dbb;
+    background: #002e5c;
 
     &:hover {
-      background: lighten(#1e6dbb, 10%);
+      background: lighten(#002e5c, 10%);
     }
   }
 
@@ -91,9 +104,17 @@ p, h1, h2, h3, h4, h5, h6 {
     position: fixed;
     top: 0;
     background: #fff;
-    height: 130px;
+    height: 95px;
     box-shadow: 0px -2px 6px #000;
     transition: all 0.5s ease;
+
+    @include adaptive(pad) {
+      height: 70px;
+    }
+
+    @include adaptive(mobile) {
+      height: 70px;
+    }
 
     & .main-header {
       &-logo {
@@ -102,16 +123,35 @@ p, h1, h2, h3, h4, h5, h6 {
         width: 148px;
         display: inline-block;
         background-size: contain;
-        margin-top: 32px;
+        margin-top: 10px;
+
+        @include adaptive(mobile) {
+          width: 105px;
+          margin-top: 18px;
+        }
       }
 
       &-location {
         .number {
           color: #bfbfbf;
+          padding-top: 19px;
+
+          @include adaptive(mobile) {
+            display: none;
+          }
         }
 
         .address {
           color: #a1a1a1;
+          margin-top: 17px;
+
+          @include adaptive(pad) {
+            display: none;
+          }
+
+          @include adaptive(mobile) {
+            display: none;
+          }
 
           &:before {
             background: url('../img/gray.png') no-repeat;
@@ -124,11 +164,32 @@ p, h1, h2, h3, h4, h5, h6 {
             opacity: 0.7;
           }
         }
+
+        .buttons {
+          margin-top: 15px;
+
+          @include adaptive(pad) {
+            display: inline-block;
+
+            .button_liteBlue {
+              display: none;
+            }
+          }
+
+          @include adaptive(mobile) {
+            display: inline-block;
+
+            .button_liteBlue {
+              display: none;
+            }
+          }
+        }
+
       }
 
       &-menu {
         position: relative;
-        top: -34px;
+        top: -30px;
         margin-top: 0;
         .list {
           &-item {
@@ -156,6 +217,16 @@ p, h1, h2, h3, h4, h5, h6 {
   padding-bottom: 110px;
   overflow: hidden;
 
+  @include adaptive(pad) {
+    max-height: 640px;
+    padding-bottom: 94px;
+  }
+
+  @include adaptive(mobile) {
+    padding-bottom: 0;
+    min-height: 530px;
+  }
+
   &:before {
     z-index: 2;
     position: absolute;
@@ -165,11 +236,11 @@ p, h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #32c9e4;
-    background: -moz-linear-gradient(top,  #32c9e4 0%, #1e6dbb 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #32c9e4 0%,#1e6dbb 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #32c9e4 0%,#1e6dbb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32c9e4', endColorstr='#1e6dbb',GradientType=0 ); /* IE6-9 */
+    background: #002e5c;
+    background: -moz-linear-gradient(left,  #002e5c 0%, #c0a35f 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #002e5c 0%,#c0a35f 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #002e5c 0%,#c0a35f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002e5c', endColorstr='#c0a35f',GradientType=1 ); /* IE6-9 */
   }
 
   &:after {
@@ -186,6 +257,103 @@ p, h1, h2, h3, h4, h5, h6 {
     animation: background 10s infinite linear;
   }
 
+  &-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+
+    &-wrapper {
+      background: $bgcolor;
+    	width:100%;
+    	height:100%;
+      display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	overflow:hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+
+      .loader {
+      	filter:url('#goo');
+        -webkit-filter: url("#goo");
+      	position:relative;
+      	width:$containerwidth;
+      	height:$containerheight;
+      	&::after { //big goo in middle
+      		content:'';
+      		display:block;
+      		width:$bigsize;
+      		height:$bigsize;
+      		border-radius:50%;
+      		background:$goocolor;
+      		margin:0 auto;
+      		position:absolute;
+      		top:$containerheight/2 - $bigsize/2;
+      		left:$containerwidth/2 - $bigsize/2;
+      		animation:scale $animtime ease-in-out infinite;
+
+          @include adaptive(pad) {
+            left: 50%;
+            margin-left: -30px;
+          }
+
+          @include adaptive(mobile) {
+            left: 50%;
+            margin-left: -30px;
+          }
+      	}
+      	div {
+      		position:absolute;
+      		width:$smallsize;
+      		height:$smallsize;
+      		border-radius:50%;
+      		background:$goocolor;
+      		top:$containerheight/2 -$smallsize/2;
+      		left:$containerwidth/2 - $smallsize/2;
+      		animation:move $animtime ease-in-out infinite alternate;
+
+          @include adaptive(pad) {
+            left: 50%;
+            margin-left: -30px;
+          }
+
+          @include adaptive(mobile) {
+            left: 50%;
+            margin-left: -30px;
+          }
+
+          &::after, &::before {
+      			content:'';
+      			display:block;
+      			position:absolute;
+      			width:$smallsize;
+      			height:$smallsize;
+      			border-radius:50%;
+      			background:$goocolor;
+      		}
+      		&::before {
+      			left:$smallsize*-2.5;
+      		}
+      		&::after {
+      			left:$smallsize*2.5;
+      		}
+      	}
+      }
+    }
+  }
+
+  svg {
+    position:absolute;
+    z-index:-100;
+    pointer-events:none;
+    display: none;
+  }
+
 
   &-logo {
     background: url('../img/logo_white.png') no-repeat;
@@ -195,6 +363,10 @@ p, h1, h2, h3, h4, h5, h6 {
     float: left;
     background-size: contain;
     margin-top: 32px;
+
+    @include adaptive(mobile) {
+      width: 105px;
+    }
   }
 
   &-location {
@@ -208,6 +380,13 @@ p, h1, h2, h3, h4, h5, h6 {
       display: inline-block;
       padding-top: 42px;
       margin-right: 20px;
+
+      @include adaptive(mobile) {
+        float: right;
+        margin-right: 0;
+        padding-top: 38px;
+        font-size: 20px;
+      }
     }
 
     .address {
@@ -221,6 +400,14 @@ p, h1, h2, h3, h4, h5, h6 {
       margin-right: 15px;
       position: relative;
       padding-left: 24px;
+
+      @include adaptive(pad) {
+        margin-top: 39px;
+      }
+
+      @include adaptive(mobile) {
+        display: none;
+      }
 
       &:before {
         position: absolute;
@@ -238,6 +425,14 @@ p, h1, h2, h3, h4, h5, h6 {
       margin-top: 32px;
       display: inline-block;
 
+      @include adaptive(pad) {
+        display: none;
+      }
+
+      @include adaptive(mobile) {
+        display: none;
+      }
+
       .button {
         &:last-child {
           margin-left: 12px;
@@ -249,6 +444,14 @@ p, h1, h2, h3, h4, h5, h6 {
 
   &-menu {
     margin-top: 20px;
+
+    @include adaptive(pad) {
+      display: none;
+    }
+
+    @include adaptive(mobile) {
+      display: none;
+    }
 
     .list {
       margin: 0;
@@ -279,6 +482,10 @@ p, h1, h2, h3, h4, h5, h6 {
 
   &-description {
     margin-top: 180px;
+
+    @include adaptive(mobile) {
+      margin-top: 135px;
+    }
   }
 
   &-title {
@@ -287,6 +494,16 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #fff;
     line-height: 85px;
     margin-bottom: 40px;
+
+    @include adaptive(pad) {
+      font-size: 60px;
+      line-height: 50px;
+    }
+
+    @include adaptive(mobile) {
+      font-size: 32px;
+      line-height: 32px;
+    }
   }
 
   &-content {
@@ -305,6 +522,10 @@ p, h1, h2, h3, h4, h5, h6 {
     outline: none;
     border-radius: 4px;
 
+    @include adaptive(mobile) {
+      width: 100%;
+    }
+
     &:hover {
       cursor: pointer;
       background: darken(#fff, 10%);
@@ -312,7 +533,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
     span {
       text-transform: uppercase;
-      color: #4b7b9a;
+      color: #002e5c;
       font-size: 14px;
       font-family: 'proxima';
       font-weight: bold;
@@ -328,8 +549,20 @@ p, h1, h2, h3, h4, h5, h6 {
   position: relative;
   min-width: 600px;
 
+  @include adaptive(mobile) {
+    min-width: initial;
+  }
+
   &-wrapper {
     padding: 95px 0;
+
+    @include adaptive(pad) {
+      padding: 50px 0;
+    }
+
+    @include adaptive(mobile) {
+      padding: 35px 0;
+    }
   }
 
   &:before {
@@ -340,6 +573,14 @@ p, h1, h2, h3, h4, h5, h6 {
     background: url('../img/about_photos.png') no-repeat;
     width: 489px;
     height: 527px;
+
+    @include adaptive(pad) {
+      display: none;
+    }
+
+    @include adaptive(mobile) {
+      display: none;
+    }
   }
 
   &-title {
@@ -348,6 +589,11 @@ p, h1, h2, h3, h4, h5, h6 {
     line-height: 80px;
     color: #201f26;
     margin-bottom: 40px;
+
+    @include adaptive(mobile) {
+      font-size: 32px;
+      line-height: 32px;
+    }
   }
 
   &-description {
@@ -362,6 +608,10 @@ p, h1, h2, h3, h4, h5, h6 {
     font-size: 16px;
     margin-bottom: 30px;
 
+    @include adaptive(mobile) {
+      font-size: 12px;
+    }
+
     img {
       vertical-align: middle;
       padding-right: 15px;
@@ -374,6 +624,20 @@ p, h1, h2, h3, h4, h5, h6 {
     position: relative;
     margin-top: 30px;
     margin-right: 15px;
+
+    @include adaptive(pad) {
+      max-width: 300px;
+      margin-right: 60px;
+      vertical-align: top;
+      margin-bottom: 47px;
+    }
+
+    @include adaptive(mobile) {
+      max-width: initial;
+      margin-right: 0;
+      margin-bottom: 25px;
+      text-align: center;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -392,6 +656,18 @@ p, h1, h2, h3, h4, h5, h6 {
     &-description {
       font-size: 16px;
       color: #6a6680;
+    }
+  }
+
+  &--landing2 {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: url('../img/second_screen_landing2.png') no-repeat;
+      width: 407px;
+      height: 460px;
     }
   }
 }
@@ -416,6 +692,20 @@ p, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 60px;
     line-height: 85px;
     font-family: 'gilroy';
+
+    @include adaptive(pad) {
+      font-size: 58px;
+      line-height: 58px;
+      margin-bottom: 30px;
+      padding-top: 60px;
+    }
+
+    @include adaptive(mobile) {
+      font-size: 29px;
+      line-height: 32px;
+      padding-top: 25px;
+      margin-bottom: 30px;
+    }
   }
 
   .description {
@@ -426,16 +716,38 @@ p, h1, h2, h3, h4, h5, h6 {
   &-advantages {
     margin-top: 50px;
 
+    @include adaptive(pad) {
+      margin-top: 20px;
+    }
+
     .name {
       color: #fff;
       font-size: 24px;
       margin-bottom: 30px;
+
+      @include adaptive(pad) {
+        padding-top: 15px;
+      }
+
+      @include adaptive(mobile) {
+        padding-top: 15px;
+      }
     }
 
     .left {
       max-width: 538px;
       display: inline-block;
       vertical-align: top;
+
+      @include adaptive(pad) {
+        max-width: initial;
+        display: block;
+      }
+
+      @include adaptive(mobile) {
+        display: block;
+        max-width: initial;
+      }
 
       .circle {
         background: #ffc000;
@@ -446,6 +758,16 @@ p, h1, h2, h3, h4, h5, h6 {
       display: inline-block;
       vertical-align: top;
       max-width: 520px;
+
+      @include adaptive(pad) {
+        max-width: initial;
+        display: block;
+      }
+
+      @include adaptive(mobile) {
+        display: block;
+        max-width: initial;
+      }
 
       .circle {
         background: #e52020;
@@ -471,6 +793,15 @@ p, h1, h2, h3, h4, h5, h6 {
     .title {
       padding-top: 50px;
       margin-bottom: 35px;
+
+      @include adaptive(pad) {
+        padding-top: 0;
+      }
+
+      @include adaptive(mobile) {
+        padding-top: 0;
+        margin-bottom: 15px;
+      }
     }
   }
 
@@ -484,11 +815,24 @@ p, h1, h2, h3, h4, h5, h6 {
     vertical-align: top;
     margin-bottom: 10px;
 
+    @include adaptive(pad) {
+      display: block;
+      width: initial;
+      margin-right: 0;
+      padding-right: 20px;
+    }
+
+    @include adaptive(mobile) {
+      width: initial;
+      display: block;
+      margin-right: 0;
+    }
+
     .circle {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #1e6dbb;
+      background: #002e5c;
       display: inline-block;
       float: left;
       margin-top: 5px;
@@ -516,6 +860,10 @@ p, h1, h2, h3, h4, h5, h6 {
   top: -1px;
   height: 700px;
 
+  @include adaptive(mobile) {
+    height: 560px;
+  }
+
   &-image_1 {
     background: url('../img/photo_1.png') no-repeat;
     background-size: cover;
@@ -540,24 +888,6 @@ p, h1, h2, h3, h4, h5, h6 {
     background-position: center;
   }
 
-  &-image_5 {
-    background: url('../img/photo_5.png') no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  &-image_6 {
-    background: url('../img/photo_6.png') no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  &-image_7 {
-    background: url('../img/photo_7.png') no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
   &:before {
     content: '';
     position: absolute;
@@ -574,6 +904,19 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #fff;
     font-size: 90px;
     font-family: 'gilroy';
+
+    @include adaptive(pad) {
+      font-size: 58px;
+      line-height: 58px;
+      padding-top: 50px;
+    }
+
+    @include adaptive(mobile) {
+      font-size: 32px;
+      line-height: 32px;
+      padding-top: 35px;
+      margin-bottom: 20px;
+    }
   }
 
   &-description {
@@ -584,6 +927,8 @@ p, h1, h2, h3, h4, h5, h6 {
   }
 
   &-content {
+
+
     img {
       display: inline-block;
       vertical-align: top;
@@ -615,9 +960,26 @@ p, h1, h2, h3, h4, h5, h6 {
     bottom: 0;
     left: 0;
 
+    @include adaptive(pad) {
+      right: 0;
+    }
+
+    @include adaptive(mobile) {
+      display: none;
+    }
+
     .content {
       color: #fff;
       font-size: 16px;
+
+      @include adaptive(pad) {
+        margin-left: 20px;
+      }
+
+      &-wrapper {
+        margin: 0 auto;
+        text-align: center;
+      }
     }
 
     .item {
@@ -629,7 +991,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
       &--active {
         img {
-          border: 3px solid #1e6dbb;
+          border: 3px solid #002e5c;
           position: relative;
           top: 3px;
         }
@@ -676,14 +1038,39 @@ p, h1, h2, h3, h4, h5, h6 {
   padding-top: 155px;
   padding-bottom: 40px;
 
+  @include adaptive(pad) {
+    padding-top: 70px;
+  }
+
+  @include adaptive(mobile) {
+    padding-top: 35px;
+    margin-bottom: 0px;
+  }
+
   &-content {
     float: left;
     margin-right: 100px;
+
+    @include adaptive(mobile) {
+      float: none;
+      margin-right: 0;
+    }
+
     .title {
       color: #201f26;
       font-size: 90px;
       font-family: 'gilroy';
       margin-bottom: 22px;
+
+      @include adaptive(pad) {
+        font-size: 58px;
+        height: 58px;
+      }
+
+      @include adaptive(mobile) {
+        line-height: 32px;
+        font-size: 32px;
+      }
     }
 
     .description {
@@ -698,11 +1085,23 @@ p, h1, h2, h3, h4, h5, h6 {
       width: 720px;
       height: 340px;
 
+      @include adaptive(mobile) {
+        width: 100%;
+        height: 200px;
+        background-size: contain;
+      }
+
       &-1 {
         margin-top: 55px;
         background: url('../img/equipment_photo_1.png') no-repeat;
         width: 720px;
         height: 340px;
+
+        @include adaptive(mobile) {
+          width: 100%;
+          height: 200px;
+          background-size: contain;
+        }
       }
 
       &-2 {
@@ -710,6 +1109,12 @@ p, h1, h2, h3, h4, h5, h6 {
         background: url('../img/equipment_photo_2.png') no-repeat;
         width: 720px;
         height: 340px;
+
+        @include adaptive(mobile) {
+          width: 100%;
+          height: 200px;
+          background-size: contain;
+        }
       }
 
       &-3 {
@@ -717,6 +1122,12 @@ p, h1, h2, h3, h4, h5, h6 {
         background: url('../img/equipment_photo_3.png') no-repeat;
         width: 720px;
         height: 340px;
+
+        @include adaptive(mobile) {
+          width: 100%;
+          height: 200px;
+          background-size: contain;
+        }
       }
     }
   }
@@ -726,15 +1137,27 @@ p, h1, h2, h3, h4, h5, h6 {
     max-width: 277px;
     display: inline-block;
 
+    @include adaptive(pad) {
+      max-width: initial;
+      margin-top: 30px;
+    }
+
     .name {
       color: #201f26;
       font-size: 24px;
       font-family: 'gilroy';
       margin-bottom: 20px;
+
     }
 
     .brend {
       margin-bottom: 50px;
+
+      @include adaptive(pad) {
+        width: 50%;
+        display: inline-block;
+        float: left;
+      }
 
       img {
         margin-bottom: 30px;
@@ -742,6 +1165,7 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 
     .photos {
+
       .item {
         display: inline-block;
         @include clearfix-micro();
@@ -754,12 +1178,12 @@ p, h1, h2, h3, h4, h5, h6 {
         border: 3px solid transparent;
 
         &--active {
-          border: 3px solid #1e6dbb;
+          border: 3px solid #002e5c;
           position: relative;
         }
         img {
           display: inline-block;
-          height: 90px;
+          height: 70px;
           width: 125px;
           float: left;
         }
@@ -776,20 +1200,47 @@ p, h1, h2, h3, h4, h5, h6 {
 .doctors {
   background: #f2f3f7;
   padding: 90px 0;
+
+  @include adaptive(pad) {
+    padding: 50px 0 25px;
+  }
+
+  @include adaptive(mobile) {
+    padding: 35px 0;
+  }
+
   &-title {
     color: #201f26;
     font-size: 90px;
     font-family: 'gilroy';
     margin-bottom: 22px;
+
+    @include adaptive(pad) {
+      font-size: 58px;
+      line-height: 58px;
+    }
+
+    @include adaptive(mobile) {
+      line-height: 32px;
+      font-size: 32px;
+    }
   }
 
   &-description {
     font-size: 16px;
     color: #6a6680;
+
+    @include adaptive(mobile) {
+      font-size: 14px;
+    }
   }
 
   &-items {
     margin-top: 45px;
+
+    @include adaptive(mobile) {
+      text-align: center;
+    }
 
     .item {
       display: inline-block;
@@ -797,6 +1248,19 @@ p, h1, h2, h3, h4, h5, h6 {
       max-width: 177px;
       text-align: left;
       vertical-align: top;
+
+      @include adaptive(pad) {
+        margin-right: 80px;
+        margin-bottom: 35px;
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+
+      @include adaptive(mobile) {
+        margin-bottom: 50px;
+      }
     }
 
     .name {
@@ -827,6 +1291,18 @@ p, h1, h2, h3, h4, h5, h6 {
     font-family: 'gilroy';
     margin-bottom: 22px;
     padding-top: 90px;
+
+    @include adaptive(pad) {
+      font-size: 58px;
+      line-height: 58px;
+      padding-top: 50px;
+    }
+
+    @include adaptive(mobile) {
+      font-size: 32px;
+      line-height: 32px;
+      padding-top: 35px;
+    }
   }
 
   &-description {
@@ -834,6 +1310,10 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #6a6680;
     max-width: 721px;
     margin-bottom: 60px;
+
+    @include adaptive(pad) {
+      margin-bottom: 30px;
+    }
   }
 
   &-items {
@@ -841,12 +1321,25 @@ p, h1, h2, h3, h4, h5, h6 {
     position: relative;
     margin-right: 37px;
 
+    @include adaptive(pad) {
+      margin-right: 0;
+    }
+
+    @include adaptive(mobile) {
+      margin-right: 0;
+    }
+
     .item {
       width: 721px;
       background: #f7f7f7;
       border-radius: 12px;
       position: relative;
       margin-bottom: 10px;
+
+      @include adaptive(mobile) {
+        width: 100%;
+        border-radius: 0;
+      }
 
       &:after {
         content: '';
@@ -857,6 +1350,10 @@ p, h1, h2, h3, h4, h5, h6 {
         width: 100%;
         background: url('../img/prices_tab_shadow.png') no-repeat;
         opacity: 0.3;
+
+        @include adaptive(mobile) {
+          display: none;
+        }
       }
 
       &-description {
@@ -868,6 +1365,12 @@ p, h1, h2, h3, h4, h5, h6 {
         color: #000;
         border-right: 1px solid #e6e6e6;
         vertical-align: middle;
+
+        @include adaptive(mobile) {
+          width: initial;
+          padding: 26px 10px 26px 10px;
+          width: 64%;
+        }
       }
 
       &-prize {
@@ -878,6 +1381,11 @@ p, h1, h2, h3, h4, h5, h6 {
         width: 100px;
         text-align: right;
         vertical-align: middle;
+
+        @include adaptive(mobile) {
+          font-size: 16px;
+          width: 50px;
+        }
 
         &:before {
           content: 'руб.';
@@ -902,6 +1410,14 @@ p, h1, h2, h3, h4, h5, h6 {
     float: right;
     margin-right: 35px;
     box-shadow: 1px 1px 13px -4px #000;
+
+    @include adaptive(pad) {
+      display: none;
+    }
+
+    @include adaptive(mobile) {
+      display: none;
+    }
 
     .title {
       font-family: 'proxima';
@@ -931,15 +1447,20 @@ p, h1, h2, h3, h4, h5, h6 {
     button {
       border: none;
       outline: none;
-      background: #1e6dbb;
+      background: #002e5c;
       display: block;
       width: 100%;
       height: 39px;
+      border-radius: 2px;
+
+      &:hover {
+        background: lighten(#002e5c, 10%);
+      }
 
       span {
         color: #fff;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 12px;
         font-family: 'proxima';
         font-weight: bold;
         display: inline-block;
@@ -1017,15 +1538,20 @@ p, h1, h2, h3, h4, h5, h6 {
     button {
       border: none;
       outline: none;
-      background: #1e6dbb;
+      background: #002e5c;
       display: block;
       width: 100%;
       height: 39px;
+      border-radius: 2px;
+
+      &:hover {
+        background: lighten(#002e5c, 10%);
+      }
 
       span {
         color: #fff;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 12px;
         font-family: 'proxima';
         font-weight: bold;
         display: inline-block;
@@ -1044,6 +1570,14 @@ p, h1, h2, h3, h4, h5, h6 {
   bottom: 70px;
   right: 0;
   max-width: 245px;
+
+  @include adaptive(pad) {
+    right: 15px;
+  }
+
+  @include adaptive(mobile) {
+    display: none;
+  }
 
   &-content {
     color: #fff;
@@ -1096,6 +1630,18 @@ p, h1, h2, h3, h4, h5, h6 {
       margin-bottom: 18px;
       padding-top: 75px;
       padding-bottom: 18px;
+
+      @include adaptive(pad) {
+        font-size: 58px;
+        line-height: 58px;
+        padding-top: 45px;
+      }
+
+      @include adaptive(mobile) {
+        font-size: 32px;
+        line-height: 32px;
+        padding-top: 25px;
+      }
     }
 
     .menu {

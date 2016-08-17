@@ -1,3 +1,13 @@
+// Loader
+$bgcolor: #002e5c;
+$goocolor: #ffffff;
+$bigsize:60px;
+$smallsize:30px;
+$containerwidth:500px;
+$animoffset:150px;
+$animtime:2.5s;
+$containerheight:$bigsize*2;
+
 @keyframes background {
   0% {
     width: 100%
@@ -18,4 +28,25 @@
   100% {
     width: 100%;
   }
+}
+
+@keyframes move {
+	0% {
+		transform:translateX($animoffset*-1);
+	}
+	100% {
+		transform:translateX($animoffset);
+	}
+}
+
+@keyframes scale {
+	10% {
+		transform:scale(1);
+	}
+	50% {
+		transform:scale(1.25);
+	}
+	90% {
+		transform:scale(1);
+	}
 }

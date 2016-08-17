@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+  window.addEventListener('onresize', function(e){
+    alert(e);
+  })
+
   $('.main-header-logo').on('click', function(){
     window.scrollTo(0, 0);
   });
