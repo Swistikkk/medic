@@ -83,6 +83,9 @@ p, h1, h2, h3, h4, h5, h6 {
       background: #ceb883; }
   .button_blue {
     background: #002e5c; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .button_blue span {
+        font-size: 11px; } }
     .button_blue:hover {
       background: #00488f; }
   .button span {
@@ -91,6 +94,9 @@ p, h1, h2, h3, h4, h5, h6 {
     font-family: 'proxima';
     font-weight: bold;
     font-size: 12px; }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .button span {
+        font-size: 11px; } }
 
 .site-header {
   position: absolute;
@@ -129,7 +135,8 @@ p, h1, h2, h3, h4, h5, h6 {
           margin-top: 18px; } }
     .site-header--active .main-header-location .number {
       color: #bfbfbf;
-      padding-top: 19px; }
+      padding-top: 19px;
+      color: #fff; }
       @media only screen and (min-width: 320px) and (max-width: 767px) {
         .site-header--active .main-header-location .number {
           display: none; } }
@@ -184,7 +191,7 @@ p, h1, h2, h3, h4, h5, h6 {
   @media only screen and (min-width: 320px) and (max-width: 767px) {
     .main-header {
       padding-bottom: 0;
-      min-height: 530px; } }
+      min-height: 560px; } }
   .main-header:before {
     z-index: 2;
     position: absolute;
@@ -215,6 +222,38 @@ p, h1, h2, h3, h4, h5, h6 {
     height: 100%;
     width: 100%;
     animation: background 10s infinite linear; }
+  .main-header-switch {
+    width: 30px;
+    height: 23px;
+    position: relative;
+    cursor: pointer;
+    float: right; }
+    @media only screen and (min-width: 1280px) {
+      .main-header-switch {
+        display: none; } }
+    @media only screen and (min-width: 767px) and (max-width: 1279px) {
+      .main-header-switch {
+        margin-top: 44px; } }
+    .main-header-switch.on:after {
+      transform: rotate(-45deg) translate(7px, -8px); }
+    .main-header-switch.on:before {
+      transform: rotate(45deg) translate(5px, 5px); }
+    .main-header-switch .menu {
+      width: 100%;
+      height: 5px;
+      background: #fff;
+      margin: 4px auto;
+      transition: all 0.3s;
+      backface-visibility: hidden; }
+    .main-header-switch.on .menu {
+      opacity: 0; }
+    .main-header-switch:before, .main-header-switch:after {
+      content: "";
+      display: block;
+      height: 5px;
+      background: #fff;
+      transition: all 0.3s;
+      backface-visibility: hidden; }
   .main-header-loader {
     position: fixed;
     top: 0;
@@ -314,7 +353,8 @@ p, h1, h2, h3, h4, h5, h6 {
       color: #fff;
       display: inline-block;
       padding-top: 42px;
-      margin-right: 20px; }
+      margin-right: 20px;
+      text-decoration: none; }
       @media only screen and (min-width: 320px) and (max-width: 767px) {
         .main-header-location .number {
           float: right;
@@ -382,6 +422,23 @@ p, h1, h2, h3, h4, h5, h6 {
           font-size: 14px; }
           .main-header-menu .list-item-link:hover {
             text-decoration: underline; }
+    .main-header-menu--active {
+      margin-top: 0;
+      display: block;
+      position: fixed;
+      width: 100%;
+      top: 0px;
+      background: red;
+      right: 0;
+      left: 0;
+      height: 100%; }
+      .main-header-menu--active .list {
+        text-align: center;
+        position: relative;
+        top: 47%; }
+        .main-header-menu--active .list-item {
+          display: block;
+          margin-right: 0; }
   .main-header-description {
     margin-top: 180px; }
     @media only screen and (min-width: 320px) and (max-width: 767px) {
@@ -860,6 +917,9 @@ p, h1, h2, h3, h4, h5, h6 {
           width: 50%;
           display: inline-block;
           float: left; } }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .machine-about .brend {
+          display: none; } }
       .machine-about .brend img {
         margin-bottom: 30px; }
     .machine-about .photos .item {
@@ -1094,6 +1154,9 @@ p, h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
       display: inline-block;
       line-height: 39px; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .cost-popup button span {
+          font-size: 11px; } }
     .cost-popup button:hover {
       cursor: pointer; }
 
@@ -1161,6 +1224,9 @@ p, h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
       display: inline-block;
       line-height: 39px; }
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        .main-popup button span {
+          font-size: 11px; } }
     .main-popup button:hover {
       cursor: pointer; }
 
@@ -1268,7 +1334,9 @@ html {
   /* 2 */ }
 
 body {
-  margin: 0; }
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
 
 article,
 aside,
