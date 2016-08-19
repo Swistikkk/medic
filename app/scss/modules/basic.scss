@@ -198,18 +198,18 @@ p, h1, h2, h3, h4, h5, h6 {
 
       }
 
-      &-menu {
-        position: relative;
-        top: -30px;
-        margin-top: 0;
-        .list {
-          &-item {
-            &-link {
-              color: #444444;
-            }
-          }
-        }
-      }
+      // &-menu {
+      //   position: relative;
+      //   top: -30px;
+      //   margin-top: 0;
+      //   .list {
+      //     &-item {
+      //       &-link {
+      //         color: #444444;
+      //       }
+      //     }
+      //   }
+      // }
     }
 
 
@@ -274,6 +274,7 @@ p, h1, h2, h3, h4, h5, h6 {
     position: relative;;
     cursor: pointer;
     float: right;
+    z-index: 5000;
 
     @include adaptive(desktop) {
       display: none;
@@ -544,7 +545,7 @@ p, h1, h2, h3, h4, h5, h6 {
       position: fixed;
       width: 100%;
       top: 0px;
-      background: red;
+      background: #002e5c;
       right: 0;
       left: 0;
       height: 100%;
@@ -556,11 +557,12 @@ p, h1, h2, h3, h4, h5, h6 {
       .list {
         text-align: center;
         position:relative;
-        top: 47%;
+        top: 20%;
 
         &-item {
           display: block;
           margin-right: 0;
+          padding: 20px 0;
         }
       }
 
