@@ -43,16 +43,20 @@ $(document).ready(function(){
 
   function scrollingMenu() {
     $(".main-header-menu").on("click","a", function (event) {
+      $('.main-header-menu').removeClass('main-header-menu--active');
+      $(".main-header-switch").removeClass('on');
+
       event.preventDefault();
       //забираем идентификатор бока с атрибута href
       var id  = $(this).attr('href'),
       //узнаем высоту от начала страницы до блока на который ссылается якорь
       top = $(id).offset().top;
       //анимируем переход на расстояние - top за 1500 мс
-      $('body,html').animate({scrollTop: top - 100}, 1500);
+      $('body,html').animate({scrollTop: top - 50}, 1500);
     });
 
   }
+
 
   // галерея
 
@@ -167,6 +171,35 @@ $(document).ready(function(){
         e.preventDefault();
         this.children[2].classList.add('error');
       }
+
+      if(this.children[1].value.length > 3 && this.children[2].value.length > 11) {
+        $.ajax({
+    			type: "POST",
+    			url: "mail.php",
+    			data: $(this).serialize()
+    		}).done(function() {
+    			$(this).find("input").val("");
+
+          // закрытие попапа
+
+          $('.main-popup').removeClass('main-popup--active');
+
+          document.querySelector('.main-form').children[1].classList.remove('error');
+
+          document.querySelector('.main-form').children[2].classList.remove('error');
+
+          document.querySelector('.success').classList.add('success--active');
+
+          setTimeout(function(){
+            $('.main-popup-background').removeClass('main-popup-background--active');
+            document.querySelector('.success').classList.remove('success--active');
+          }, 3000);
+    			//$("#form").trigger("reset");
+    		});
+      };
+
+      e.preventDefault();
+      return false;
     });
 
     costForm.addEventListener('submit', function(e) {
@@ -181,6 +214,29 @@ $(document).ready(function(){
         e.preventDefault();
         this.children[2].classList.add('error');
       }
+
+      if(this.children[1].value.length > 3 && this.children[2].value.length > 11) {
+        $.ajax({
+    			type: "POST",
+    			url: "mail.php",
+    			data: $(this).serialize()
+    		}).done(function() {
+    			$(this).find("input").val("");
+          $('.main-popup').removeClass('main-popup--active');
+          document.querySelector('.main-form').children[1].classList.remove('error');
+          document.querySelector('.main-form').children[2].classList.remove('error');
+
+          document.querySelector('.success').classList.add('success--active');
+
+          setTimeout(function(){
+            $('.main-popup-background').removeClass('main-popup-background--active');
+            document.querySelector('.success').classList.remove('success--active');
+          }, 3000);
+    		});
+      };
+
+      e.preventDefault();
+      return false;
     });
   }
 

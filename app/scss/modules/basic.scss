@@ -36,8 +36,12 @@ p, h1, h2, h3, h4, h5, h6 {
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
-  z-index: 10;
+  //z-index: 10;
   height: 100%;
+
+  &--zIndex {
+    z-index: 10;
+  }
 
   @include clearfix-micro();
 
@@ -117,6 +121,7 @@ p, h1, h2, h3, h4, h5, h6 {
     height: 95px;
     box-shadow: 0px -2px 6px #000;
     transition: all 0.5s ease;
+    z-index: 2000;
 
     @include adaptive(pad) {
       height: 70px;
@@ -145,7 +150,6 @@ p, h1, h2, h3, h4, h5, h6 {
         .number {
           color: #bfbfbf;
           padding-top: 19px;
-          color: #fff;
 
           @include adaptive(mobile) {
             display: none;
@@ -189,6 +193,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
           @include adaptive(mobile) {
             display: inline-block;
+            display: none;
 
             .button_liteBlue {
               display: none;
@@ -198,18 +203,72 @@ p, h1, h2, h3, h4, h5, h6 {
 
       }
 
-      // &-menu {
-      //   position: relative;
-      //   top: -30px;
-      //   margin-top: 0;
-      //   .list {
-      //     &-item {
-      //       &-link {
-      //         color: #444444;
-      //       }
-      //     }
-      //   }
-      // }
+      &-menu {
+        @include adaptive(desktop) {
+          position: relative;
+          top: -30px;
+          margin-top: 0;
+          .list {
+            &-item {
+              &-link {
+                color: #444444;
+              }
+            }
+          }
+        }
+      }
+
+      &-switch {
+        width: 30px;
+        height: 23px;
+        position: relative;;
+        cursor: pointer;
+        float: right;
+        z-index: 9000;
+        top: 27px;
+        margin-right: 5px;
+
+        @include adaptive(desktop) {
+          display: none;
+        }
+
+        @include adaptive(pad) {
+          margin-top: 0;
+          margin-left: 25px;
+        }
+
+        &.on {
+          &:after {
+            transform: rotate(-45deg) translate(7px, -8px);
+          }
+          &:before {
+            transform: rotate(45deg) translate(5px, 5px);
+          }
+        }
+
+        .menu {
+          width: 100%;
+          height: 5px;
+          background: #ccc;
+          margin: 4px auto;
+          transition: all 0.3s;
+          backface-visibility: hidden;
+        }
+
+        &.on .menu {
+          opacity: 0;
+        }
+
+        &:before, &:after {
+          content: "";
+          display: block;
+          height: 5px;
+          background: #ccc;
+          transition: all 0.3s;
+          backface-visibility: hidden;
+        }
+      }
+
     }
 
 
@@ -229,7 +288,7 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 
   @include adaptive(pad) {
-    max-height: 640px;
+    //max-height: 640px;
     padding-bottom: 94px;
   }
 
@@ -265,7 +324,7 @@ p, h1, h2, h3, h4, h5, h6 {
     left: 0;
     height: 100%;
     width: 100%;
-    animation: background 10s infinite linear;
+    animation: background 15s infinite linear;
   }
 
   &-switch {
@@ -274,7 +333,7 @@ p, h1, h2, h3, h4, h5, h6 {
     position: relative;;
     cursor: pointer;
     float: right;
-    z-index: 5000;
+    z-index: 9000;
 
     @include adaptive(desktop) {
       display: none;
@@ -282,6 +341,11 @@ p, h1, h2, h3, h4, h5, h6 {
 
     @include adaptive(pad) {
       margin-top: 44px;
+    }
+
+    @include adaptive(mobile) {
+      width: 25px;
+      top: 36px;
     }
 
     &.on {
@@ -442,10 +506,10 @@ p, h1, h2, h3, h4, h5, h6 {
       text-decoration: none;
 
       @include adaptive(mobile) {
-        float: right;
-        margin-right: 0;
+        //float: right;
+        margin-right: 10px;
         padding-top: 38px;
-        font-size: 20px;
+        font-size: 16px;
       }
     }
 
@@ -549,6 +613,7 @@ p, h1, h2, h3, h4, h5, h6 {
       right: 0;
       left: 0;
       height: 100%;
+      z-index: 2000;
 
       @include adaptive(pad) {
 
@@ -557,12 +622,13 @@ p, h1, h2, h3, h4, h5, h6 {
       .list {
         text-align: center;
         position:relative;
-        top: 20%;
+        top: 10%;
 
         &-item {
+          text-transform: uppercase;
           display: block;
           margin-right: 0;
-          padding: 20px 0;
+          padding: 12px 0;
         }
       }
 
@@ -573,6 +639,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
   &-description {
     margin-top: 180px;
+    position: relative;
+    z-index: 10;
 
     @include adaptive(mobile) {
       margin-top: 135px;
@@ -615,6 +683,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
     @include adaptive(mobile) {
       width: 100%;
+      margin-bottom: 25px;
     }
 
     &:hover {
@@ -1172,7 +1241,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
     .image {
       margin-top: 55px;
-      background: url('../img/equipment_photo_1.png') no-repeat;
+      background: url('../img/equipment_photo_1.jpg') no-repeat;
       width: 720px;
       height: 340px;
 
@@ -1184,7 +1253,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
       &-1 {
         margin-top: 55px;
-        background: url('../img/equipment_photo_1.png') no-repeat;
+        background: url('../img/equipment_photo_1.jpg') no-repeat;
         width: 720px;
         height: 340px;
 
@@ -1694,7 +1763,7 @@ p, h1, h2, h3, h4, h5, h6 {
     &-img {
       width: 42px;
       height: 43px;
-      background: url('../img/first_screen_man.png') no-repeat;
+      background: url('../img/first_screen_man.jpg') no-repeat;
       display: inline-block;
       float: left;
       margin-right: 10px;
@@ -1809,5 +1878,29 @@ p, h1, h2, h3, h4, h5, h6 {
 
   .map {
     margin-top: 25px;
+  }
+}
+
+.success {
+  position: fixed;
+  top: 30%;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+  display: none;
+
+  &--active {
+    display: block;
+  }
+
+
+  &-wrapper {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 530px;
+    width: 100%;
+    padding: 28px;
+    color: #000;
+    background: #fff;
   }
 }
